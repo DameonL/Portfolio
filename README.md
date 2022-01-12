@@ -13,7 +13,7 @@
     - RPG mechanics - players are able to use collected currency to improve their ship, unlocking new weapons and defenses
     - Google Play integration - players are able to sign in with Google Play to unlock achievements and save their game to the cloud
    
-- **[Calc You Later](https://dameonl.github.io/CalcYouLater/calcyoulater.html)**
+- **Calc You Later** [Source Code](https://github.com/DameonL/CalcYouLater) / [Try It!](https://dameonl.github.io/CalcYouLater/calcyoulater.html)
     
     A robust scientific calculator created using the React framework.
  
