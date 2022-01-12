@@ -2,6 +2,8 @@
 
 - **Beyond Blue Skies**
     
+    _Code samples available upon request_
+    
     A full-featured mobile shoot 'em up game with RPG mechanics, featuring an original soundtrack, dialogue, and unlockable content. The player steers a spaceship through various spacescapes, fighting a variety of enemies and avoiding environmental obstacles while collecting power-ups.
  
     **Language:** _C#_
