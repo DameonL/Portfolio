@@ -21,6 +21,3 @@
 - [Green Mamba Stealth](https://github.com/DameonL/GreenMambaStealth) - An extension for Unity3D which provides a system to analyze the way lighting affects an object and determine whether that object should be considered "hidden" for an NPC observer.
     Language: C#
     Features:
-    - 
-    - 
-
