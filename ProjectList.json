@@ -16,6 +16,26 @@
         ]
     },
     {
+        "Title" : "To Do List",
+        "Language" : "JavaScript, HTML, and CSS",
+        "Links" : [
+            {
+                "linkText" : "Source Code",
+                "link" : "https://github.com/DameonL/ToDoList"
+            },
+            {
+                "linkText" : "Try It!",
+                "link" : "https://dameonl.github.io/ToDoList/"
+            }
+        ],
+        "Description" : "A vanilla Javascript implementation of an advanced To Do List, featuring a list which can be rearranged using drag and drop, and an advanced text editor.",
+        "Features" : [
+            "Uses IndexedDb for persistent local storage",
+            "Modular code allows for easy replacement of independent systems",
+            "Responsive layout works for a variety of displays"
+        ]
+    },
+    {
         "Title" : "Calc You Later",
         "Language" : "JavaScript, HTML, and CSS",
         "Links" : [
@@ -25,7 +45,7 @@
             },
             {
                 "linkText" : "Try It!",
-                "link" : "https://dameonl.github.io/CalcYouLater/calcyoulater.html"
+                "link" : "https://dameonl.github.io/CalcYouLater/"
             }
         ],
         "Description" : "A robust scientific calculator created using the React framework.",
