@@ -13,13 +13,27 @@
     - Google Play integration - players are able to sign in with Google Play to unlock achievements and save their game to the cloud
 
 
+- **To Do List**
+    
+    A vanilla Javascript implementation of an advanced To Do List, featuring a list which can be rearranged using drag and drop, and an advanced text editor.
+ 
+    **Language:** _JavaScript, HTML, and CSS_
+
+    [Source Code](https://github.com/DameonL/ToDoList) / [Try It!](https://dameonl.github.io/ToDoList/)
+
+    **Features:**
+    - Uses IndexedDb for persistent local storage
+    - Modular code allows for easy replacement of independent systems
+    - Responsive layout works for a variety of displays
+
+
 - **Calc You Later**
     
     A robust scientific calculator created using the React framework.
  
     **Language:** _JavaScript, HTML, and CSS_
 
-    [Source Code](https://github.com/DameonL/CalcYouLater) / [Try It!](https://dameonl.github.io/CalcYouLater/calcyoulater.html)
+    [Source Code](https://github.com/DameonL/CalcYouLater) / [Try It!](https://dameonl.github.io/CalcYouLater/)
 
     **Features:**
     - Supports a wide variety of functions
