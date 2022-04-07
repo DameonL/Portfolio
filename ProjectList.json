@@ -1,5 +1,20 @@
 [
     {
+        "Title" : "I Love Lamp",
+        "Language" : "Javascript, HTML, and CSS",
+        "Links" : [
+            {
+                "linkText" : "https://github.com/DameonL/ILoveLamp",
+                "link" : "https://dameonl.github.io/ILoveLamp/"
+            }
+        ],
+        "Description" : "A responsive single-page ecommerce site",
+        "Features" : [
+            "Uses front-end features for routing, requiring no back-end",
+            "Stores and retrieves data using Google's Firebase API"
+        ]
+    },
+    {
         "Title" : "Beyond Blue Skies",
         "Language" : "C#",
         "Links" : [
