@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dameon's Portfolio</title>
+        <meta name="description" content="Dameon Laird Portfolio Page">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styles/portfolio.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <script src="./src/index.js" type="module" async></script>
+        <project-list>
+            <div boundField="projects" fieldTemplate="projectTemplate"></div>
+        </project-list>
+
+        <!-- Templates -->
+        <template id="projectTemplate">
+            <div boundField="projects" class="projectListItem">
+                <div boundField="projects.title"></div>
+                <div class="projectListItemLanguge"><div boundField="projects.language" bindFieldName></div><div boundField="projects.language"></div></div>
+                <div><div boundField="projects.features" bindFieldName></div><div boundField="projects.features" fieldTemplate="projectFeatureTemplate"></div></div>
+                <div boundField="projects.description"></div>
+                <div boundField="projects.links" fieldTemplate="projectLinkTemplate"></div>
+            </div>
+        </template>
+
+        <template id="projectLinkTemplate">
+            <div boundField="projects.links"><a boundField="projects.links.link" boundAttribute="href"><span boundField="projects.links.linkText"></span></a></div>
+        </template>
+        
+        <template id="projectFeatureTemplate">
+            <ul boundField="projects.features"><li boundField="projects.features.text"></li></ul>
+        </template>
+
+    </body>
+</html>
