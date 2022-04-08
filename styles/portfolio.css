@@ -1,4 +1,140 @@
+@import url('http://fonts.cdnfonts.com/css/amiga-forever');
+
+project-list {
+    display: none;
+}
+
+#atariStLook {
+    background-color: #00e000;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    font-family: 'Amiga Forever', sans-serif;
+    font-size: 1.5em;
+}
+
+#atariStMenuBar {
+    background-color: #e0e0e0;
+    border-bottom: .3em solid black;
+    height: 2.2em;
+    padding-left: 3em;
+    display: flex;
+    z-index: -1000;
+}
+
+.atariStMenu {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    cursor: pointer;
+    user-select: none;
+    margin-top: auto;
+}
+
+.atariStMenu:focus {
+    background-color: black;
+    color: #e0e0e0;
+}
+
+.atariStMenuFoldout {
+    display: none;
+    position: absolute;
+    background-color: #e0e0e0;
+    top: 2.44em;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1;
+    border: .2em solid black;
+}
+
+.atariStMenu:focus + .atariStMenuFoldout {
+    display: flex;
+    flex-direction: column;
+}
+
+.atariStMenuFoldoutItem {
+    padding-left: 3em;
+    padding-right: 2em;
+}
+
+.atariStMenuFoldoutItem:hover {
+    background-color: black;
+    color: #e0e0e0;
+}
+
+#atariStDesktopItems {
+    z-index: -1;
+}
+
+.atariStDesktopItem {
+    width: 10em;
+    text-align: center;
+}
+
+.atariStDesktopItemIcon {
+    filter: grayscale(100%);
+    cursor: pointer;
+    font-size: 3em;
+    overflow: hidden;
+    height: 1.3em;
+}
+
+.atariStDesktopItemIconFilter {
+    position: absolute;
+    height: 4em;
+    width: 4em;
+    background-color: rgb(0,0,0,0);
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+.atariStDesktopItemLabel {
+    background-color: #e0e0e0;
+    color: black;
+}
+
+.atariStDesktopItem:focus > .atariStDesktopItemLabel {
+    background-color: black;
+    color: #e0e0e0;
+}
+
+.atariStDesktopItem:focus > .atariStDesktopItemIcon {
+    filter: invert(1);
+}
+
 [boundField="projects.title"] {
     font-size: 2rem;
     font-weight: bold;
+}
+
+[fieldTemplate="projectTemplate"] {
+    transition: left 5s ease;
+    left: 0px;
+}
+
+.unloaded {
+    position: relative;
+    left: -100%;
+}
+
+.loadIn {
+    animation: loadInFromLeft 1s;
+}
+
+@keyframes loadInFromLeft {
+    0% {
+        position: relative;
+        left: -100%;
+    }
+
+    75% {
+        position: relative;
+        left: 5%;
+    }
+
+    100% {
+        position: relative;
+        left: 0%;
+    }
 }

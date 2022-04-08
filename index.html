@@ -18,13 +18,34 @@
         <![endif]-->
 
         <script src="./src/index.js" type="module" async></script>
+
+        <div id="atariStLook">
+            <div id="atariStMenuBar">
+                <div class="atariStMenu" tabindex="-1">Desk</div>
+                <div class="atariStMenuFoldout">
+                    <div class="atariStMenuFoldoutItem">Desktop Info...</div>
+                    <div class="atariStMenuFoldoutItem">Control Panel</div>
+                </div>
+                <div class="atariStMenu" tabindex="-1">File</div>
+                <div class="atariStMenu" tabindex="-1">View</div>
+                <div class="atariStMenu" tabindex="-1">Options</div>
+            </div>
+            <div id="atariStDesktopItems">
+                <div class="atariStDesktopItem" tabindex="-1">
+                    <div class="atariStDesktopItemIconFilter"></div>
+                    <div class="atariStDesktopItemIcon">💾</div>
+                    <div class="atariStDesktopItemLabel">FLOPPY</div>
+                </div>
+            </div>
+        </div>
+
         <project-list>
             <div boundField="projects" fieldTemplate="projectTemplate"></div>
         </project-list>
 
         <!-- Templates -->
         <template id="projectTemplate">
-            <div boundField="projects" class="projectListItem">
+            <div boundField="projects" class="projectListItem unloaded">
                 <div boundField="projects.title"></div>
                 <div class="projectListItemLanguge"><div boundField="projects.language" bindFieldName></div><div boundField="projects.language"></div></div>
                 <div><div boundField="projects.features" bindFieldName></div><div boundField="projects.features" fieldTemplate="projectFeatureTemplate"></div></div>
