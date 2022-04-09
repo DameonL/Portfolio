@@ -118,8 +118,8 @@ project-list {
 .atariStDesktopItemWindow {
     display: none;
     position: absolute;
-    width: 50vw;
-    height: 50vh;
+    min-width: 500px;
+    min-height: 500px;
     left: 10vw;
     background-color: var(--system-backgroundColor);
     outline: .2em solid black;
