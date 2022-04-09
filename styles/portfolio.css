@@ -190,6 +190,7 @@ project-list {
 
 .atariStDesktopItemWindowContent {
     height: 45vh;
+    overflow: auto;
 }
 
 #calcYouLaterFrame {
