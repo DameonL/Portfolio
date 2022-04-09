@@ -35,88 +35,89 @@
         <div id="atariStDesktopItems">
             <div class="atariStDesktopItem" tabindex="-1">
                 <div class="atariStDesktopItemIconFilter"></div>
-                <div class="atariStDesktopItemIcon"><div class="atariStDesktopItemIconInvert">💾</div></div>
+                <div class="atariStDesktopItemIcon">
+                    <div class="atariStDesktopItemIconInvert">💾</div>
+                </div>
                 <div class="atariStDesktopItemLabel">PROJECTS</div>
-                <div class="atariStDesktopItemWindow">
-                    <div class="atariStDesktopItemWindowTitlebar">
-                        <div class="atariStDesktopItemWindowTitlebarClose"></div>
-                        <div class="atariStDesktopItemWindowTitlebarLabel">Projects</div>
-                    </div>
-                    <div class="atariStDesktopItemWindowContent">
-                        <div class="atariStDesktopItemWindowContentLabel">
-                            <div>Projects</div>
+                <template class="atariStDesktopItemWindowTemplate">
+                    <div class="atariStDesktopItemWindow">
+                        <div class="atariStDesktopItemWindowTitlebar">
+                            <div class="atariStDesktopItemWindowTitlebarClose"></div>
+                            <div class="atariStDesktopItemWindowTitlebarLabel">Projects</div>
                         </div>
-                        <div class="atariStDesktopItemWindowContentList">
-                            <div class="atariStDesktopItemWindowContentListItem">
-                                <div>Project 1</div>
-                            </div>
-                            <div class="atariStDesktopItemWindowContentListItem">
-                                <div>Project 2</div>
-                            </div>
-                            <div class="atariStDesktopItemWindowContentListItem">
-                                <div>Project 3</div>
-                            </div>
-                            <div class="atariStDesktopItemWindowContentListItem">
-                                <div>Project 4</div>
-                            </div>
-                            <div class="atariStDesktopItemWindowContentListItem">
-                                <div>Project 5</div>
-                            </div>
-                            <div class="atariStDesktopItemWindowContentListItem">
-                                <div>Project 6</div>
-                            </div>
-                            <div class="atariStDesktopItemWindowContentListItem">
-                                <div>Project 7</div>
-                            </div>
-                            <div class="atariStDesktopItemWindowContentListItem">
-                                <div>Project 8</div>
-                            </div>
-                            <div class="atariStDesktopItemWindowContentListItem">
-                                <div>Project 9</div>
-                            </div>
-                            <div class="atariStDesktopItemWindowContentListItem">
-                                <div>Project 10</div>
+                        <div class="atariStDesktopItemWindowContent">
+                            <div class="atariStDesktopItemWindowContentList">
+                                <project-list>
+                                    <div boundField="projects" fieldTemplate="projectListItemTemplate"></div>
+                                </project-list>
                             </div>
                         </div>
                     </div>
-                </div>
+                </template>
             </div>
             <div class="atariStDesktopItem" tabindex="-1">
                 <div class="atariStDesktopItemIconFilter"></div>
-                <div class="atariStDesktopItemIcon"><div class="atariStDesktopItemIconInvert">🧮</div></div>
+                <div class="atariStDesktopItemIcon">
+                    <div class="atariStDesktopItemIconInvert">🧮</div>
+                </div>
                 <div class="atariStDesktopItemLabel">CALCULATOR</div>
-                <div class="atariStDesktopItemWindow" style="height: 50vh;">
-                    <div class="atariStDesktopItemWindowTitlebar">
-                        <div class="atariStDesktopItemWindowTitlebarClose"></div>
-                        <div class="atariStDesktopItemWindowTitlebarLabel">Calculator</div>
+                <template class="atariStDesktopItemWindowTemplate">
+                    <div class="atariStDesktopItemWindow" style="height: 50vh;">
+                        <div class="atariStDesktopItemWindowTitlebar">
+                            <div class="atariStDesktopItemWindowTitlebarClose"></div>
+                            <div class="atariStDesktopItemWindowTitlebarLabel">Calculator</div>
+                        </div>
+                        <div class="atariStDesktopItemWindowContent">
+                            <iframe id="calcYouLaterFrame"
+                                loadFromUrl="https://dameonl.github.io/CalcYouLater/"></iframe>
+                        </div>
                     </div>
-                    <div class="atariStDesktopItemWindowContent">
-                        <iframe id="calcYouLaterFrame" loadFromUrl="https://dameonl.github.io/CalcYouLater/"></iframe>
-                    </div>
-                </div>
+                </template>
             </div>
             <div class="atariStDesktopItem" tabindex="-1">
                 <div class="atariStDesktopItemIconFilter"></div>
-                <div class="atariStDesktopItemIcon"><div class="atariStDesktopItemIconInvert">📋</div></div>
-                <div class="atariStDesktopItemLabel">TODO LIST</div>
-                <div class="atariStDesktopItemWindow" style="height: 50vh;">
-                    <div class="atariStDesktopItemWindowTitlebar">
-                        <div class="atariStDesktopItemWindowTitlebarClose"></div>
-                        <div class="atariStDesktopItemWindowTitlebarLabel">To Do List</div>
-                    </div>
-                    <div class="atariStDesktopItemWindowContent">
-                        <iframe id="calcYouLaterFrame" loadFromUrl="https://dameonl.github.io/ToDoList/"></iframe>
-                    </div>
+                <div class="atariStDesktopItemIcon">
+                    <div class="atariStDesktopItemIconInvert">📋</div>
                 </div>
+                <div class="atariStDesktopItemLabel">TODO LIST</div>
+                <template class="atariStDesktopItemWindowTemplate">
+                    <div class="atariStDesktopItemWindow" style="height: 50vh;">
+                        <div class="atariStDesktopItemWindowTitlebar">
+                            <div class="atariStDesktopItemWindowTitlebarClose"></div>
+                            <div class="atariStDesktopItemWindowTitlebarLabel">To Do List</div>
+                        </div>
+                        <div class="atariStDesktopItemWindowContent">
+                            <iframe id="calcYouLaterFrame" loadFromUrl="https://dameonl.github.io/ToDoList/"></iframe>
+                        </div>
+                    </div>
+                </template>
             </div>
         </div>
     </div>
 
-    <project-list>
-        <div boundField="projects" fieldTemplate="projectTemplate"></div>
-    </project-list>
-
     <!-- Templates -->
+    <template id="projectListItemTemplate">
+        <div class="atariStDesktopItemWindowContentListItem" boundField="projects">
+            <div class="atariStDesktopItemWindowContentListItemLabel" boundField="projects.title" tabindex="-1"></div>
+            <div class="atariStDesktopItemWindow" style="display: none;">
+                <div boundField="projects.title"></div>
+                <div class="projectListItemLanguge">
+                    <div boundField="projects.language" bindFieldName></div>
+                    <div boundField="projects.language"></div>
+                </div>
+                <div>
+                    <div boundField="projects.features" bindFieldName></div>
+                    <div boundField="projects.features" fieldTemplate="projectFeatureTemplate"></div>
+                </div>
+                <div boundField="projects.description"></div>
+                <div boundField="projects.links" fieldTemplate="projectLinkTemplate"></div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- Deprecated, left in temporarily for example use -->
+
     <template id="projectTemplate">
         <div boundField="projects" class="projectListItem unloaded">
             <div boundField="projects.title"></div>

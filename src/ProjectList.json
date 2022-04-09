@@ -5,7 +5,11 @@
             "language": "Javascript, HTML, and CSS",
             "links": [
                 {
-                    "linkText": "https://github.com/DameonL/ILoveLamp",
+                    "linkText": "Source Code",
+                    "link": "https://github.com/DameonL/ILoveLamp"
+                },
+                {
+                    "linkText": "Try it!",
                     "link": "https://dameonl.github.io/ILoveLamp/"
                 }
             ],
