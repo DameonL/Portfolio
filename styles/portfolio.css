@@ -114,6 +114,7 @@
 
 .atariStDesktopItemWindow {
     position: absolute;
+    height: 21.5em;
     min-width: 500px;
     min-height: 500px;
     left: 10vw;
@@ -185,7 +186,7 @@
 }
 
 .atariStDesktopItemWindowContent {
-    height: 90%;
+    height: 19.75em;
     overflow: auto;
 }
 
