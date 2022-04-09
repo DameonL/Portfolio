@@ -1,4 +1,13 @@
-@import url('http://fonts.cdnfonts.com/css/amiga-forever');
+:root {
+    --system-backgroundColor: #e0e0e0;
+}
+
+@font-face {
+    font-family: 'AtariClassicChunky';
+    font-style: normal;
+    font-weight: 400;
+    src: local('AtariClassicChunky'), url("../fonts/AtariClassicChunky.woff") format('woff');
+}
 
 project-list {
     display: none;
@@ -11,7 +20,7 @@ project-list {
     right: 0px;
     top: 0px;
     bottom: 0px;
-    font-family: 'Amiga Forever', sans-serif;
+    font-family: 'AtariClassicChunky', sans-serif;
     font-size: 1.5em;
 }
 
@@ -34,13 +43,13 @@ project-list {
 
 .atariStMenu:focus {
     background-color: black;
-    color: #e0e0e0;
+    color: var(--system-backgroundColor);
 }
 
 .atariStMenuFoldout {
     display: none;
     position: absolute;
-    background-color: #e0e0e0;
+    background-color: var(--system-backgroundColor);
     top: 2.44em;
     cursor: pointer;
     user-select: none;
@@ -60,16 +69,19 @@ project-list {
 
 .atariStMenuFoldoutItem:hover {
     background-color: black;
-    color: #e0e0e0;
+    color: var(--system-backgroundColor);
 }
 
 #atariStDesktopItems {
     z-index: -1;
+    display: flex;
+    gap: 1em;
 }
 
 .atariStDesktopItem {
     width: 10em;
     text-align: center;
+    user-select: none;
 }
 
 .atariStDesktopItemIcon {
@@ -90,51 +102,97 @@ project-list {
 }
 
 .atariStDesktopItemLabel {
-    background-color: #e0e0e0;
+    background-color: var(--system-backgroundColor);
     color: black;
 }
 
 .atariStDesktopItem:focus > .atariStDesktopItemLabel {
     background-color: black;
-    color: #e0e0e0;
+    color: var(--system-backgroundColor);
 }
 
-.atariStDesktopItem:focus > .atariStDesktopItemIcon {
+.atariStDesktopItem:focus > .atariStDesktopItemIcon > .atariStDesktopItemIconInvert {
     filter: invert(1);
 }
 
-[boundField="projects.title"] {
-    font-size: 2rem;
-    font-weight: bold;
+.atariStDesktopItemWindow {
+    display: none;
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    left: 10vw;
+    background-color: var(--system-backgroundColor);
+    outline: .2em solid black;
+    box-shadow: .3em .3em 0em rgb(0, 0, 0, 0.5);
+    animation: windowOpenAnimation 250ms;
 }
 
-[fieldTemplate="projectTemplate"] {
-    transition: left 5s ease;
-    left: 0px;
-}
-
-.unloaded {
-    position: relative;
-    left: -100%;
-}
-
-.loadIn {
-    animation: loadInFromLeft 1s;
-}
-
-@keyframes loadInFromLeft {
+@keyframes windowOpenAnimation {
     0% {
-        position: relative;
-        left: -100%;
-    }
-
-    75% {
-        position: relative;
-        left: 5%;
+        display: block;
+        transform: scale(0);
     }
 
     100% {
-        position: relative;
-        left: 0%;
+        display: block;
+        transform: scale(1);
     }
+}
+
+.atariStDesktopItemWindowTitlebar {
+    height: 1.5em;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAABtJREFUGFdjZGBg+M/AwMDIAAVwBjYBsEoMFQBW5gIF0HSEnwAAAABJRU5ErkJggg==) repeat;
+    display: flex;
+    border-bottom: .2em solid black;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.atariStDesktopItemWindowTitlebarClose {
+    border-right: .2em solid black;
+    width: 1.5em;
+    min-width: 15px;
+    padding: .1em .1em .1em .1em;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAENJREFUKFNjZECA/0hsZCYjiAMm8CiGy4MYIJOQNcBMRhGDKcRmOswisEZkhXidQpZCdI9htZoozxAdPChWYAl0sG0AkToSBTGNSd4AAAAASUVORK5CYII=);
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: var(--system-backgroundColor);
+}
+
+.atariStDesktopItemWindowTitlebarClose:active {
+    filter: invert(1);
+}
+
+[windowCloseAnimation] {
+    animation: windowCloseAnimation 250ms;
+}
+
+@keyframes windowCloseAnimation {
+    0% {
+        display: block;
+        transform: scale(1);
+    }
+
+    100% {
+        display: block;
+        transform: scale(0);
+    }
+}
+
+.atariStDesktopItemWindowTitlebarLabel {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+.atariStDesktopItemWindowContent {
+    height: 45vh;
+}
+
+#calcYouLaterFrame {
+    width: 100%;
+    height: 100%;
 }
