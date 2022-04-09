@@ -13,6 +13,7 @@ document.querySelectorAll(".atariStDesktopItem").forEach(element => {
         if (innerWindow) {
             console.log("innerWindow", innerWindow);
             innerWindow.setAttribute("src", innerWindow.getAttribute("loadFromUrl"));
+            newWindow.querySelector(".atariStDesktopItemWindowContent").style.overflow = "unset";
         }
 
         newWindow.querySelector(".atariStDesktopItemWindowTitlebarClose").addEventListener("click", () => {
