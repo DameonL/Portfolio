@@ -11,9 +11,9 @@ document.querySelectorAll(".atariStDesktopItem").forEach(element => {
 
         let innerWindow = newWindow.querySelector("[loadFromUrl]");
         if (innerWindow) {
-            console.log("innerWindow", innerWindow);
+            newWindow.querySelector(".atariStDesktopItemWindowContent").style.overflow = "hidden";
             innerWindow.setAttribute("src", innerWindow.getAttribute("loadFromUrl"));
-            newWindow.querySelector(".atariStDesktopItemWindowContent").style.overflow = "unset";
+            
         }
 
         newWindow.querySelector(".atariStDesktopItemWindowTitlebarClose").addEventListener("click", () => {

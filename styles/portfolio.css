@@ -22,6 +22,7 @@ project-list {
     bottom: 0px;
     font-family: 'AtariClassicChunky', sans-serif;
     font-size: 1.5em;
+    cursor: "🐝" auto;
 }
 
 #atariStMenuBar {
@@ -140,7 +141,7 @@ project-list {
 }
 
 .atariStDesktopItemWindowTitlebar {
-    height: 1.5em;
+    height: 10%;
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAABtJREFUGFdjZGBg+M/AwMDIAAVwBjYBsEoMFQBW5gIF0HSEnwAAAABJRU5ErkJggg==) repeat;
     display: flex;
     border-bottom: .2em solid black;
@@ -189,7 +190,7 @@ project-list {
 }
 
 .atariStDesktopItemWindowContent {
-    height: 45vh;
+    height: 90%;
     overflow: auto;
 }
 
