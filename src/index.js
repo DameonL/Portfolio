@@ -1,10 +1,9 @@
 import ProjectList from "./ProjectList.js";
-
 customElements.define("project-list", ProjectList);
 
 document.querySelectorAll(".atariStDesktopItem").forEach(element => {
     element.addEventListener("click", () => {
-        let newWindow = element.querySelector(".atariStDesktopItemWindow").cloneNode(true);
+        let newWindow = element.querySelector(".atariStDesktopItemWindowTemplate").content.firstElementChild.cloneNode(true);
         newWindow.style.display = "block";
         
         document.querySelector("#atariStDesktopItems").appendChild(newWindow);
@@ -13,7 +12,6 @@ document.querySelectorAll(".atariStDesktopItem").forEach(element => {
         if (innerWindow) {
             newWindow.querySelector(".atariStDesktopItemWindowContent").style.overflow = "hidden";
             innerWindow.setAttribute("src", innerWindow.getAttribute("loadFromUrl"));
-            
         }
 
         newWindow.querySelector(".atariStDesktopItemWindowTitlebarClose").addEventListener("click", () => {
@@ -48,11 +46,11 @@ document.querySelectorAll(".atariStDesktopItem").forEach(element => {
         }
 
         titleBar.addEventListener("mousedown", dragStart);
-        titleBar.addEventListener("mousemove", dragMove);
-        titleBar.addEventListener("mouseup", dragEnd);
+        window.addEventListener("mousemove", dragMove);
+        window.addEventListener("mouseup", dragEnd);
 
         titleBar.addEventListener("touchstart", dragStart);
-        titleBar.addEventListener("touchmove", dragMove);
-        titleBar.addEventListener("touchend", dragEnd);      
+        window.addEventListener("touchmove", dragMove);
+        window.addEventListener("touchend", dragEnd);      
     });
 });

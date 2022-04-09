@@ -1,5 +1,6 @@
 class ItemBinder {
     bindForRead(rootElement) {
+        // TODO: This code will need to be completely redone
         let elementToBind = rootElement;
         let boundElements = elementToBind.querySelectorAll("[boundField]");
         for (let boundElement of boundElements) {
