@@ -99,7 +99,7 @@
     <template id="projectListItemTemplate">
         <div class="atariStDesktopItemWindowContentListItem" boundField="projects">
             <div class="atariStDesktopItemWindowContentListItemLabel" boundField="projects.title" tabindex="-1"></div>
-            <div class="atariStDesktopItemWindow" style="display: none;">
+            <div class="atariStDesktopItemWindow">
                 <div boundField="projects.title"></div>
                 <div class="projectListItemLanguge">
                     <div boundField="projects.language" bindFieldName></div>
@@ -115,6 +115,10 @@
         </div>
     </template>
 
+    <template id="projectLinkTemplate">
+        <div boundField="projects.links"><a boundField="projects.links.link" boundAttribute="href" target="_blank"><span
+                    boundField="projects.links.linkText"></span></a></div>
+    </template>
 
     <!-- Deprecated, left in temporarily for example use -->
 
@@ -132,11 +136,6 @@
             <div boundField="projects.description"></div>
             <div boundField="projects.links" fieldTemplate="projectLinkTemplate"></div>
         </div>
-    </template>
-
-    <template id="projectLinkTemplate">
-        <div boundField="projects.links"><a boundField="projects.links.link" boundAttribute="href"><span
-                    boundField="projects.links.linkText"></span></a></div>
     </template>
 
     <template id="projectFeatureTemplate">

@@ -14,6 +14,17 @@ class ProjectList extends HTMLElement {
        let projectList = await fetch("./src/ProjectList.json");
        projectList = await projectList.json();
        this.#projectListBinder.bindItemToElement(projectList, this);
+       let allProjectLabels = this.querySelectorAll(".atariStDesktopItemWindowContentListItemLabel");
+        allProjectLabels.forEach(label => {
+            label.addEventListener("click", () => {
+                label.nextElementSibling.style.display = "block";
+            });
+            label.nextElementSibling.addEventListener("click", (event) => {
+                if (event.target.parentElement.nodeName !== "A") {
+                    label.nextElementSibling.style.display = "none";
+                }
+            });
+        });
    }
 }
 
