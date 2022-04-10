@@ -205,9 +205,9 @@
     background-color: var(--system-backgroundColor);
 }
 
-.atariStDesktopItemWindowContentListItemLabel:focus  + .atariStDesktopItemWindow {
+.atariStDesktopItemWindowContentListItemLabel  + .atariStDesktopItemWindow {
+    display: none;
     background-color: var(--system-backgroundColor);
-    display: block !important;
     position: absolute;
     overflow: auto;
     left: 0px;
