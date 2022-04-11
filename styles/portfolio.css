@@ -2,11 +2,70 @@
     --system-backgroundColor: #e0e0e0;
 }
 
+*:active {
+    background-color: unset;
+}
+
 @font-face {
     font-family: 'AtariClassicChunky';
     font-style: normal;
     font-weight: 400;
     src: local('AtariClassicChunky'), url("../fonts/AtariClassicChunky.woff") format('woff');
+}
+
+@media screen and (max-width: 1023px) {
+    #atariStDesktopItems {
+        flex-direction: column;
+    }
+
+    #atariStMenuBarResponsive {
+        display: none;
+        background-color: black;
+    }
+
+    #atariStMenuBarResponsiveContainer {
+        flex-direction: column;
+        border-bottom: .3em solid black;
+        background-color: black;
+    }
+    
+    .atariStMenuItem {
+        padding-left: 15vw;
+        padding-right: 5vw;
+    }
+    
+    .atariStMenuFoldout {
+        left: 0;
+        right: 0;
+    }
+    
+    .atariStWindow {
+        position: absolute;
+        left: 1px;
+        top: 1px;
+        height: 99%;
+        width: 99%;
+        background-color: var(--system-backgroundColor);
+        outline: .2em solid black;
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+    #atariStMenuBarResponsiveLabel {
+        display: none;
+    }
+
+    #atariStMenuBarResponsive {
+        display: flex;
+        padding-left: 10vw;
+    }
+
+    .atariStWindow {
+        height: 21.5em;
+        min-width: 500px;
+        min-height: 500px;
+    }
 }
 
 #atariStLook {
@@ -22,55 +81,51 @@
 }
 
 #atariStMenuBar {
-    background-color: #e0e0e0;
-    border-bottom: .3em solid black;
+    background-color: var(--system-backgroundColor);
     height: 2.2em;
-    padding-left: 3em;
-    display: flex;
-    z-index: -1000;
+    border-bottom: .3em solid black;
 }
 
-.atariStMenu {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    cursor: pointer;
-    user-select: none;
+#atariStMenuBarResponsive {
+    position: relative;
+    z-index: 1000;
+    height: 100%;
+}
+
+#atariStMenuBarResponsiveContainer {
+    padding-left: .1vw;
+    padding-right: .1vw;
+    display: flex;
+    row-gap: 0.1vh;
+    column-gap: 5vw;
     margin-top: auto;
 }
 
-.atariStMenu:focus {
-    background-color: black;
-    color: var(--system-backgroundColor);
+#atariStMenuBarResponsiveContainer > * {
+    cursor: pointer;
+}
+
+.atariStMenuItem {
+    user-select: none;
+    margin-top: auto;
+    background-color: var(--system-backgroundColor);
 }
 
 .atariStMenuFoldout {
     display: none;
+    flex-direction: column;
     position: absolute;
     background-color: var(--system-backgroundColor);
-    top: 2.44em;
-    cursor: pointer;
-    user-select: none;
-    z-index: 1;
     border: .2em solid black;
+    overflow: hidden;
 }
 
-.atariStMenu:focus + .atariStMenuFoldout {
-    display: flex;
-    flex-direction: column;
-}
-
-.atariStMenuFoldoutItem {
-    padding-left: 3em;
-    padding-right: 2em;
-}
-
-.atariStMenuFoldoutItem:hover {
-    background-color: black;
-    color: var(--system-backgroundColor);
+.atariStMenuItem, .atariStMenuFoldout {
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 
 #atariStDesktopItems {
-    z-index: -1;
     display: flex;
     gap: 1em;
 }
@@ -112,12 +167,8 @@
     filter: invert(1);
 }
 
-.atariStDesktopItemWindow {
+.atariStWindow {
     position: absolute;
-    height: 21.5em;
-    min-width: 500px;
-    min-height: 500px;
-    left: 10vw;
     background-color: var(--system-backgroundColor);
     outline: .2em solid black;
     box-shadow: .3em .3em 0em rgb(0, 0, 0, 0.5);
@@ -136,7 +187,7 @@
     }
 }
 
-.atariStDesktopItemWindowTitlebar {
+.atariStWindowTitlebar {
     height: 1.5em;
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAABtJREFUGFdjZGBg+M/AwMDIAAVwBjYBsEoMFQBW5gIF0HSEnwAAAABJRU5ErkJggg==) repeat;
     display: flex;
@@ -146,7 +197,7 @@
     user-select: none;
 }
 
-.atariStDesktopItemWindowTitlebarClose {
+.atariStWindowTitlebarClose {
     border-right: .2em solid black;
     width: 1.5em;
     min-width: 15px;
@@ -158,7 +209,7 @@
     background-color: var(--system-backgroundColor);
 }
 
-.atariStDesktopItemWindowTitlebarClose:active {
+.atariStWindowTitlebarClose:active {
     filter: invert(1);
 }
 
@@ -178,14 +229,14 @@
     }
 }
 
-.atariStDesktopItemWindowTitlebarLabel {
+.atariStWindowTitlebarLabel {
     width: 100%;
     margin-top: auto;
     margin-bottom: auto;
     text-align: center;
 }
 
-.atariStDesktopItemWindowContent {
+.atariStWindowContent {
     height: 19.75em;
     overflow: auto;
 }
@@ -195,17 +246,17 @@
     height: 100%;
 }
 
-.atariStDesktopItemWindowContentListItemLabel {
+.atariStWindowContentListItemLabel {
     cursor: pointer;
     user-select: none;
 }
 
-.atariStDesktopItemWindowContentListItemLabel:focus {
+.atariStWindowContentListItemLabel:focus {
     filter: invert();
     background-color: var(--system-backgroundColor);
 }
 
-.atariStDesktopItemWindowContentListItemLabel  + .atariStDesktopItemWindow {
+.atariStWindowContentListItemLabel  + .atariStWindow {
     display: none;
     background-color: var(--system-backgroundColor);
     position: absolute;
@@ -215,3 +266,9 @@
     top: 0px;
     bottom: 0px;
 }
+
+.atariStMenuItemActive, .atariStMenuItem:focus {
+    color: var(--system-backgroundColor);
+    background-color: black;
+}
+
