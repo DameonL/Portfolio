@@ -1,13 +1,17 @@
 import ProjectList from "./ProjectList.js";
 customElements.define("project-list", ProjectList);
 
-function createWindow(labelText, htmlContent) {
+function createWindow(labelText, innerElements) {
     let newWindow = document.querySelector("#atariStWindowTemplate").content.firstElementChild.cloneNode(true);
-    newWindow.querySelector("atariStWindowTitlebarLabel").innerText = labelText;
-
+    console.log(newWindow);
+    newWindow.querySelector(".atariStWindowTitlebarLabel").innerText = labelText;
+    newWindow.querySelector(".atariStWindowContent").appendChild(innerElements);
+    setUpWindowDrag(newWindow);
+    setUpCloseButton(newWindow);
+    document.querySelector("#atariStDesktopItems").appendChild(newWindow);
 }
 
-function setUpWindowDrag(titlebar, newWindow) {
+function setUpWindowDrag(targetWindow) {
     let dragging = false;
     let startOffsetX = 0;
     let startOffsetY = 0;
@@ -15,8 +19,8 @@ function setUpWindowDrag(titlebar, newWindow) {
     let dragStart = (event) => {
         let x = (event.clientX) ? event.clientX : event.touches[0].clientX;
         let y = (event.clientY) ? event.clientY : event.touches[0].clientY;
-        startOffsetX = x - newWindow.offsetLeft;
-        startOffsetY = y - newWindow.offsetTop;
+        startOffsetX = x - targetWindow.offsetLeft;
+        startOffsetY = y - targetWindow.offsetTop;
         dragging = true;
     }
 
@@ -24,8 +28,8 @@ function setUpWindowDrag(titlebar, newWindow) {
         if (dragging) {
             let x = (event.clientX) ? event.clientX : event.touches[0].clientX;
             let y = (event.clientY) ? event.clientY : event.touches[0].clientY;
-            newWindow.style.left = x - startOffsetX + "px";
-            newWindow.style.top = y - startOffsetY + "px";
+            targetWindow.style.left = x - startOffsetX + "px";
+            targetWindow.style.top = y - startOffsetY + "px";
         }
     }
 
@@ -33,6 +37,7 @@ function setUpWindowDrag(titlebar, newWindow) {
         dragging = false;
     }
 
+    let titlebar = targetWindow.querySelector(".atariStWindowTitlebar");
     titlebar.addEventListener("mousedown", dragStart);
     window.addEventListener("mousemove", dragMove);
     window.addEventListener("mouseup", dragEnd);
@@ -42,8 +47,11 @@ function setUpWindowDrag(titlebar, newWindow) {
     window.addEventListener("touchend", dragEnd);
 }
 
-function setUpCloseButton(closeButton, newWindow) {
-
+function setUpCloseButton(targetWindow) {
+    targetWindow.querySelector(".atariStWindowTitlebarClose").addEventListener("click", () => {
+        targetWindow.addEventListener("animationend", () => targetWindow.remove());
+        targetWindow.setAttribute("windowCloseAnimation", "");
+    });
 }
 
 document.querySelectorAll(".atariStDesktopItem").forEach(element => {
@@ -59,13 +67,8 @@ document.querySelectorAll(".atariStDesktopItem").forEach(element => {
             innerWindow.setAttribute("src", innerWindow.getAttribute("loadFromUrl"));
         }
 
-        newWindow.querySelector(".atariStWindowTitlebarClose").addEventListener("click", () => {
-            newWindow.addEventListener("animationend", () => newWindow.remove());
-            newWindow.setAttribute("windowCloseAnimation", "");
-        });
-
-        let titlebar = newWindow.querySelector(".atariStWindowTitlebar");
-        setUpWindowDrag(titlebar, newWindow);
+        setUpWindowDrag(newWindow);
+        setUpCloseButton(newWindow);
     });
 });
 
@@ -113,4 +116,8 @@ document.querySelectorAll(".atariStMenuItem, .atariStMenuFoldoutItem").forEach(e
             element.classList.remove("atariStMenuItemActive");
         }
     });
+});
+
+document.querySelector("#aboutMeButton").addEventListener("click", () => {
+    createWindow("About Me", document.querySelector("#aboutMeTemplate").content.firstElementChild.cloneNode(true));
 });
