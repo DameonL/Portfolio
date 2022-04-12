@@ -30,7 +30,7 @@
                         <div class="atariStMenuItem">Desk</div>
                         <div class="atariStMenuFoldout">
                             <div id="aboutMeButton" class="atariStMenuItem" tabindex="-1">About Me...</div>
-                            <div class="atariStMenuItem" tabindex="-1">Control Panel</div>
+                            <div id="contactButton" class="atariStMenuItem" tabindex="-1">Contact</div>
                         </div>
                     </div>
                     <div>
@@ -113,7 +113,7 @@
         <div class="atariStWindowContentListItem" boundField="projects">
             <div class="atariStWindowContentListItemLabel" boundField="projects.title" tabindex="-1"></div>
             <div class="atariStWindow">
-                <div boundField="projects.title"></div>
+                <div class="projectTitle" boundField="projects.title"></div>
                 <div class="projectListItemLanguge">
                     <div boundField="projects.language" bindFieldName></div>
                     <div boundField="projects.language"></div>
@@ -144,24 +144,6 @@
         </div>
     </template>
     
-    <!-- Deprecated, left in temporarily for example use -->
-
-    <template id="projectTemplate">
-        <div boundField="projects" class="projectListItem unloaded">
-            <div boundField="projects.title"></div>
-            <div class="projectListItemLanguge">
-                <div boundField="projects.language" bindFieldName></div>
-                <div boundField="projects.language"></div>
-            </div>
-            <div>
-                <div boundField="projects.features" bindFieldName></div>
-                <div boundField="projects.features" fieldTemplate="projectFeatureTemplate"></div>
-            </div>
-            <div boundField="projects.description"></div>
-            <div boundField="projects.links" fieldTemplate="projectLinkTemplate"></div>
-        </div>
-    </template>
-
     <template id="projectFeatureTemplate">
         <ul boundField="projects.features">
             <li boundField="projects.features.text"></li>
@@ -170,7 +152,31 @@
 
     <template id="aboutMeTemplate">
         <div>
-            I am Dameon.
+            <div><h3>Dameon Laird</h5></div>
+            <div id="aboutMeLanguageList">
+                <div>Languages:</div>
+                <ul>
+                    <li>C#</li>
+                    <li>JavaScript/HTML/CSS</li>
+                    <li>Java</li>
+                    <li>C</li>
+                    <li>Visual Basic</li>
+                </ul>
+            </div>
+            <div id="aboutMeTechnologyList">
+                <div>Technologies:</div>
+                <ul>
+                    <li>.NET/.NET Core/ASP.NET</li>
+                    <li>React/Bootstrap</li>
+                    <li>Unity</li>
+                </ul>
+            </div>
+        </div>
+    </template>
+    <template id="contactTemplate">
+        <div id="contactWindow">
+            <div>Interested in me or my work? Drop me a line!</div>
+            <div id="contactMailToLink"><a href="#">E-mail me today!</a></div>
         </div>
     </template>
 </body>
