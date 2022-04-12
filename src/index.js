@@ -1,14 +1,18 @@
 import ProjectList from "./ProjectList.js";
 customElements.define("project-list", ProjectList);
 
+let emailAddress = "ZGFtZW9ubGFpckBnbWFpbC5jb20=";
+
 function createWindow(labelText, innerElements) {
     let newWindow = document.querySelector("#atariStWindowTemplate").content.firstElementChild.cloneNode(true);
-    console.log(newWindow);
     newWindow.querySelector(".atariStWindowTitlebarLabel").innerText = labelText;
-    newWindow.querySelector(".atariStWindowContent").appendChild(innerElements);
+    let contentDiv = newWindow.querySelector(".atariStWindowContent");
+    contentDiv.appendChild(innerElements);
+    contentDiv.style.width = `${window.innerWidth * .9}px`;
     setUpWindowDrag(newWindow);
     setUpCloseButton(newWindow);
     document.querySelector("#atariStDesktopItems").appendChild(newWindow);
+    return newWindow;
 }
 
 function setUpWindowDrag(targetWindow) {
@@ -63,7 +67,9 @@ document.querySelectorAll(".atariStDesktopItem").forEach(element => {
 
         let innerWindow = newWindow.querySelector("[loadFromUrl]");
         if (innerWindow) {
-            newWindow.querySelector(".atariStWindowContent").style.overflow = "hidden";
+            innerWindow.addEventListener("load", () => {
+                innerWindow.parentElement.style.width = innerWindow.contentWindow.document.body.offsetWidth;
+            });
             innerWindow.setAttribute("src", innerWindow.getAttribute("loadFromUrl"));
         }
 
@@ -119,5 +125,12 @@ document.querySelectorAll(".atariStMenuItem, .atariStMenuFoldoutItem").forEach(e
 });
 
 document.querySelector("#aboutMeButton").addEventListener("click", () => {
-    createWindow("About Me", document.querySelector("#aboutMeTemplate").content.firstElementChild.cloneNode(true));
+    let newWindow = createWindow("About Me", document.querySelector("#aboutMeTemplate").content.firstElementChild.cloneNode(true));
+    newWindow.click();
+});
+
+document.querySelector("#contactButton").addEventListener("click", () => {
+    let newWindow = createWindow("Contact", document.querySelector("#contactTemplate").content.firstElementChild.cloneNode(true));
+    newWindow.querySelector("#contactMailToLink a").addEventListener("click", () => window.open(`mailto:${atob(emailAddress)}`));
+    newWindow.click();
 });
