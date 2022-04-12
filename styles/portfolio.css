@@ -1,5 +1,7 @@
 :root {
     --system-backgroundColor: #e0e0e0;
+    --dottedBackground: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAABtJREFUGFdjZGBg+M/AwMDIAAVwBjYBsEoMFQBW5gIF0HSEnwAAAABJRU5ErkJggg==);
+
 }
 
 *:active {
@@ -59,12 +61,6 @@
     #atariStMenuBarResponsive {
         display: flex;
         padding-left: 10vw;
-    }
-
-    .atariStWindow {
-        height: 21.5em;
-        min-width: 500px;
-        min-height: 500px;
     }
 }
 
@@ -189,7 +185,7 @@
 
 .atariStWindowTitlebar {
     height: 1.5em;
-    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAABtJREFUGFdjZGBg+M/AwMDIAAVwBjYBsEoMFQBW5gIF0HSEnwAAAABJRU5ErkJggg==) repeat;
+    background: var(--dottedBackground) repeat;
     display: flex;
     border-bottom: .2em solid black;
     position: relative;
@@ -238,7 +234,9 @@
 
 .atariStWindowContent {
     height: 19.75em;
-    overflow: auto;
+    overflow: scroll;
+    resize: both;
+    padding: .2em .2em .2em .2em;
 }
 
 #calcYouLaterFrame {
@@ -272,3 +270,37 @@
     background-color: black;
 }
 
+::-webkit-scrollbar, ::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-corner {
+    background-color: var(--system-backgroundColor);
+    outline: .2em solid black;
+}
+
+::-webkit-scrollbar {
+    width: 30px;
+    height: 30px;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+    height:30px;
+    background-image: url("../img/scrollbar/scrollBarArrowUp.png");
+    background-position-y: -5px;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+    height:30px;
+    background-image: url("../img/scrollbar/scrollBarArrowDown.png");
+    background-position-y: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dottedBackground) repeat;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: black;
+    background-image: linear-gradient(135deg, black 0 60%, white 0 70%, black 0 80%);
+}
+
+::-webkit-scrollbar-corner::after {
+    color: white;
+}
