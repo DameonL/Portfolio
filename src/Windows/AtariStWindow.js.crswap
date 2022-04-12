@@ -4,13 +4,13 @@ class AtariStWindow extends HTMLElement {
     constructor() {
         super();
 
-        let innerElements = [];
-        for (let node of this.children) {
-            innerElements.push(node);
-        }
+        let label = this.getAttribute("title");
+        let innerElements = this.firstElementChild;
+        if (innerElements)
+            innerElements.remove();
 
         setTimeout(() => {
-            this.#createWindow(innerElements);
+            this.#createWindow(label, innerElements);
         });
     }
 
@@ -24,19 +24,16 @@ class AtariStWindow extends HTMLElement {
         }
     }
 
-    #createWindow(innerElements) {
+    #createWindow(labelText, innerElements) {
         let newWindow = document.querySelector("#atariStWindowTemplate").content.firstElementChild.cloneNode(true);
-        newWindow.querySelector(".atariStWindowTitlebarLabel").innerText = this.title;
+        newWindow.querySelector(".atariStWindowTitlebarLabel").innerText = labelText;
 
         this.#contentDiv = newWindow.querySelector(".atariStWindowContent");
-        innerElements.forEach(element => {
-            this.#contentDiv.appendChild(element);
-        });
+        if (innerElements)
+        this.#contentDiv.appendChild(innerElements);
 
-        let contentWidth = Math.min(600, window.innerWidth * .9);
-        let contentHeight = Math.min(600, window.innerHeight * .9);
-        this.#contentDiv.style.width = `${contentWidth}px`;
-        this.#contentDiv.style.height = `${contentHeight}px`;
+        let contentWidth = Math.min(400px, window.innerWidth * .9
+        this.#contentDiv.style.width = `${window.innerWidth * .9}px`;
 
         this.appendChild(newWindow);
         this.#setUpWindowDrag(newWindow);
@@ -50,8 +47,6 @@ class AtariStWindow extends HTMLElement {
         let startOffsetX = 0;
         let startOffsetY = 0;
     
-        let titlebar = this.querySelector(".atariStWindowTitlebar");
-
         let dragStart = (event) => {
             let x = (event.clientX) ? event.clientX : event.touches[0].clientX;
             let y = (event.clientY) ? event.clientY : event.touches[0].clientY;
@@ -73,6 +68,7 @@ class AtariStWindow extends HTMLElement {
             dragging = false;
         }
     
+        let titlebar = this.querySelector(".atariStWindowTitlebar");
         titlebar.addEventListener("mousedown", dragStart);
         window.addEventListener("mousemove", dragMove);
         window.addEventListener("mouseup", dragEnd);

@@ -40,7 +40,9 @@
                             <div class="atariStMenuItem" tabindex="-1">Close</div>
                         </div>
                     </div>
-                    <div><div class="atariStMenuItem">View</div></div>
+                    <div>
+                        <div class="atariStMenuItem">View</div>
+                    </div>
                 </div>
             </div>
 
@@ -53,19 +55,9 @@
                 </div>
                 <div class="atariStDesktopItemLabel">PROJECTS</div>
                 <template class="atariStWindowTemplate">
-                    <div class="atariStWindow">
-                        <div class="atariStWindowTitlebar">
-                            <div class="atariStWindowTitlebarClose"></div>
-                            <div class="atariStWindowTitlebarLabel">Projects</div>
-                        </div>
-                        <div class="atariStWindowContent">
-                            <div class="atariStWindowContentList">
-                                <project-list>
-                                    <div boundField="projects" fieldTemplate="projectListItemTemplate"></div>
-                                </project-list>
-                            </div>
-                        </div>
-                    </div>
+                    <project-list>
+                        <div boundField="projects" fieldTemplate="projectListItemTemplate"></div>
+                    </project-list>
                 </template>
             </div>
             <div class="atariStDesktopItem" tabindex="-1">
@@ -75,16 +67,7 @@
                 </div>
                 <div class="atariStDesktopItemLabel">CALCULATOR</div>
                 <template class="atariStWindowTemplate">
-                    <div class="atariStWindow">
-                        <div class="atariStWindowTitlebar">
-                            <div class="atariStWindowTitlebarClose"></div>
-                            <div class="atariStWindowTitlebarLabel">Calculator</div>
-                        </div>
-                        <div class="atariStWindowContent">
-                            <iframe id="calcYouLaterFrame"
-                                loadFromUrl="https://dameonl.github.io/CalcYouLater/"></iframe>
-                        </div>
-                    </div>
+                    <iframe id="calcYouLaterFrame" loadFromUrl="https://dameonl.github.io/CalcYouLater/"></iframe>
                 </template>
             </div>
             <div class="atariStDesktopItem" tabindex="-1">
@@ -94,15 +77,7 @@
                 </div>
                 <div class="atariStDesktopItemLabel">TODO LIST</div>
                 <template class="atariStWindowTemplate">
-                    <div class="atariStWindow">
-                        <div class="atariStWindowTitlebar">
-                            <div class="atariStWindowTitlebarClose"></div>
-                            <div class="atariStWindowTitlebarLabel">To Do List</div>
-                        </div>
-                        <div class="atariStWindowContent">
-                            <iframe id="calcYouLaterFrame" loadFromUrl="https://dameonl.github.io/ToDoList/"></iframe>
-                        </div>
-                    </div>
+                    <iframe id="calcYouLaterFrame" loadFromUrl="https://dameonl.github.io/ToDoList/"></iframe>
                 </template>
             </div>
         </div>
@@ -143,7 +118,7 @@
             </div>
         </div>
     </template>
-    
+
     <template id="projectFeatureTemplate">
         <ul boundField="projects.features">
             <li boundField="projects.features.text"></li>
@@ -151,8 +126,10 @@
     </template>
 
     <template id="aboutMeTemplate">
-        <div>
-            <div><h3>Dameon Laird</h5></div>
+        <atari-window title="About Me">
+            <div>
+                <h3>Dameon Laird</h5>
+            </div>
             <div id="aboutMeLanguageList">
                 <div>Languages:</div>
                 <ul>
@@ -171,13 +148,15 @@
                     <li>Unity</li>
                 </ul>
             </div>
-        </div>
+        </atari-window>
     </template>
     <template id="contactTemplate">
-        <div id="contactWindow">
-            <div>Interested in me or my work? Drop me a line!</div>
-            <div id="contactMailToLink"><a href="#">E-mail me today!</a></div>
-        </div>
+        <atari-window title="Contact">
+            <div id="contactWindow">
+                <div>Interested in me or my work? Drop me a line!</div>
+                <div id="contactMailToLink"><a href="#">E-mail me today!</a></div>
+            </div>
+        </atari-window>
     </template>
 </body>
 

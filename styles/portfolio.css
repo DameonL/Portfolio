@@ -1,11 +1,15 @@
 :root {
     --system-backgroundColor: #e0e0e0;
     --dottedBackground: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAABtJREFUGFdjZGBg+M/AwMDIAAVwBjYBsEoMFQBW5gIF0HSEnwAAAABJRU5ErkJggg==);
-
 }
 
 *:active {
     background-color: unset;
+}
+
+atari-window {
+    display: block;
+    position: absolute;
 }
 
 @font-face {
@@ -235,6 +239,7 @@
 
 .atariStWindowContent {
     overflow: scroll;
+    overflow-wrap: break-word;
     resize: both;
     padding: .2em .2em .2em .2em;
 }
