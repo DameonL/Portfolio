@@ -66,6 +66,19 @@ document.querySelectorAll(".atariStDesktopItem").forEach(element => {
 
         let titlebar = newWindow.querySelector(".atariStWindowTitlebar");
         setUpWindowDrag(titlebar, newWindow);
+
+        setTimeout(() => {
+            newWindow.querySelectorAll(".atariStWindowContentListItemLabel").forEach(element => {
+                element.addEventListener("click", () => {
+                    element.nextElementSibling.style.display = "block";
+                });
+                element.nextElementSibling.addEventListener("click", (event) => {
+                        if (event.target.parentElement.nodeName !== "A") {
+                            element.nextElementSibling.style.display = "none";
+                        }
+                });
+            });
+        }, 100);
     });
 });
 
