@@ -300,7 +300,3 @@
     background-color: black;
     background-image: linear-gradient(135deg, black 0 60%, white 0 70%, black 0 80%);
 }
-
-::-webkit-scrollbar-corner::after {
-    color: white;
-}
