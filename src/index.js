@@ -1,80 +1,18 @@
 import ProjectList from "./ProjectList.js";
+import AtariStWindow from "./Windows/AtariStWindow.js";
 customElements.define("project-list", ProjectList);
+customElements.define("atari-window", AtariStWindow);
 
 let emailAddress = "ZGFtZW9ubGFpckBnbWFpbC5jb20=";
 
-function createWindow(labelText, innerElements) {
-    let newWindow = document.querySelector("#atariStWindowTemplate").content.firstElementChild.cloneNode(true);
-    newWindow.querySelector(".atariStWindowTitlebarLabel").innerText = labelText;
-    let contentDiv = newWindow.querySelector(".atariStWindowContent");
-    contentDiv.appendChild(innerElements);
-    contentDiv.style.width = `${window.innerWidth * .9}px`;
-    setUpWindowDrag(newWindow);
-    setUpCloseButton(newWindow);
-    document.querySelector("#atariStDesktopItems").appendChild(newWindow);
-    return newWindow;
-}
-
-function setUpWindowDrag(targetWindow) {
-    let dragging = false;
-    let startOffsetX = 0;
-    let startOffsetY = 0;
-
-    let dragStart = (event) => {
-        let x = (event.clientX) ? event.clientX : event.touches[0].clientX;
-        let y = (event.clientY) ? event.clientY : event.touches[0].clientY;
-        startOffsetX = x - targetWindow.offsetLeft;
-        startOffsetY = y - targetWindow.offsetTop;
-        dragging = true;
-    }
-
-    let dragMove = (event) => {
-        if (dragging) {
-            let x = (event.clientX) ? event.clientX : event.touches[0].clientX;
-            let y = (event.clientY) ? event.clientY : event.touches[0].clientY;
-            targetWindow.style.left = x - startOffsetX + "px";
-            targetWindow.style.top = y - startOffsetY + "px";
-        }
-    }
-
-    let dragEnd = (event) => {
-        dragging = false;
-    }
-
-    let titlebar = targetWindow.querySelector(".atariStWindowTitlebar");
-    titlebar.addEventListener("mousedown", dragStart);
-    window.addEventListener("mousemove", dragMove);
-    window.addEventListener("mouseup", dragEnd);
-
-    titlebar.addEventListener("touchstart", dragStart);
-    window.addEventListener("touchmove", dragMove);
-    window.addEventListener("touchend", dragEnd);
-}
-
-function setUpCloseButton(targetWindow) {
-    targetWindow.querySelector(".atariStWindowTitlebarClose").addEventListener("click", () => {
-        targetWindow.addEventListener("animationend", () => targetWindow.remove());
-        targetWindow.setAttribute("windowCloseAnimation", "");
-    });
-}
-
 document.querySelectorAll(".atariStDesktopItem").forEach(element => {
     element.addEventListener("click", () => {
-        let newWindow = element.querySelector(".atariStWindowTemplate").content.firstElementChild.cloneNode(true);
-        newWindow.style.display = "block";
+        let newWindow = document.createElement("atari-window");
+        newWindow.addEventListener("load", () => {
+            newWindow.setContent(element.querySelector(".atariStWindowTemplate").content.firstElementChild.cloneNode(true));
+        });
         
         document.querySelector("#atariStDesktopItems").appendChild(newWindow);
-
-        let innerWindow = newWindow.querySelector("[loadFromUrl]");
-        if (innerWindow) {
-            innerWindow.addEventListener("load", () => {
-                innerWindow.parentElement.style.width = innerWindow.contentWindow.document.body.offsetWidth;
-            });
-            innerWindow.setAttribute("src", innerWindow.getAttribute("loadFromUrl"));
-        }
-
-        setUpWindowDrag(newWindow);
-        setUpCloseButton(newWindow);
     });
 });
 
@@ -125,12 +63,14 @@ document.querySelectorAll(".atariStMenuItem, .atariStMenuFoldoutItem").forEach(e
 });
 
 document.querySelector("#aboutMeButton").addEventListener("click", () => {
-    let newWindow = createWindow("About Me", document.querySelector("#aboutMeTemplate").content.firstElementChild.cloneNode(true));
+    let newWindow = document.querySelector("#aboutMeTemplate").content.firstElementChild.cloneNode(true);
+    document.querySelector("#atariStDesktopItems").appendChild(newWindow);
     newWindow.click();
 });
 
 document.querySelector("#contactButton").addEventListener("click", () => {
-    let newWindow = createWindow("Contact", document.querySelector("#contactTemplate").content.firstElementChild.cloneNode(true));
+    let newWindow = document.querySelector("#contactTemplate").content.firstElementChild.cloneNode(true);
     newWindow.querySelector("#contactMailToLink a").addEventListener("click", () => window.open(`mailto:${atob(emailAddress)}`));
+    document.querySelector("#atariStDesktopItems").appendChild(newWindow);
     newWindow.click();
 });
