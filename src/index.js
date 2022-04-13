@@ -59,7 +59,7 @@ document.querySelectorAll(".atariStMenuItem, .atariStMenuFoldoutItem").forEach(e
 });
 
 document.querySelectorAll(".atariStMenuItem").forEach(menuElement => {
-    if (menuElement.nextElementSibling.nodeName === "TEMPLATE") {
+    if ((menuElement.nextElementSibling) && (menuElement.nextElementSibling.nodeName === "TEMPLATE")) {
         menuElement.addEventListener("click", () => {
             let newWindow = menuElement.nextElementSibling.content.firstElementChild.cloneNode(true);
             document.querySelector("#atariStDesktopItems").appendChild(newWindow);
