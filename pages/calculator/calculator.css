@@ -1,0 +1,72 @@
+* {
+    font-family: 'AtariClassicChunky', sans-serif;
+}
+
+body {
+    margin: .1em .1em .1em .1em;
+    width: fit-content;
+}
+
+#calcGridContainer {
+    width: fit-content;
+    overflow: hidden;
+ }
+  
+button {
+    border-style: none;
+    border-radius: 5px;
+    width: 3em;
+    height: 3em;
+    font-size: 1.5em;
+}
+
+#root {
+    width: fit-content;
+}
+  
+.gridContainer {
+    display: grid;
+    grid-gap: 5px;
+    justify-content: start;
+}
+  
+#history {
+    grid-column: 1 / span 3;
+    margin: 5px 1px 5px 1px;
+    border: .2em solid;
+    overflow: auto;
+    height: 100px;
+}
+  
+#inputWindow {
+    grid-column: 1 / span 3;
+    margin: 5px 1px 5px 1px;
+    outline: .2em solid lightgrey;
+    cursor: text;
+    min-height: 1.5em;
+}
+  
+#inputArea:focus {
+    outline: none;
+}
+  
+#calcGridContainer {
+    grid-template-columns: repeat(3, auto);
+}
+  
+#topButtonGridContainer {
+    grid-column: 1 / span 3;
+    grid-template-columns: repeat(7, auto);
+}
+  
+#numberButtonGridContainer {
+    grid-template-columns: repeat(3, auto);
+}
+
+#rightButtonGridContainer {
+    grid-template-columns: auto;
+}
+
+#leftButtonGridContainer {
+    grid-template-columns: repeat(3, auto);
+}

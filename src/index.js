@@ -7,11 +7,7 @@ let emailAddress = "ZGFtZW9ubGFpckBnbWFpbC5jb20=";
 
 document.querySelectorAll(".atariStDesktopItem").forEach(element => {
     element.addEventListener("click", () => {
-        let newWindow = document.createElement("atari-window");
-        newWindow.addEventListener("load", () => {
-            newWindow.setContent(element.querySelector(".atariStWindowTemplate").content.firstElementChild.cloneNode(true));
-        });
-        
+        let newWindow = element.querySelector(".atariStWindowTemplate").content.firstElementChild.cloneNode(true);
         document.querySelector("#atariStDesktopItems").appendChild(newWindow);
     });
 });

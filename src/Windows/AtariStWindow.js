@@ -12,11 +12,26 @@ class AtariStWindow extends HTMLElement {
         setTimeout(() => {
             this.#createWindow(innerElements);
         });
+
+        if (this.hasAttribute("fitContent")) {
+            let innerWindow = this.querySelector("[loadFromUrl]");
+            let updateToInnerSize = () => {
+                this.#contentDiv.firstElementChild.style.width = innerWindow.contentWindow.document.body.scrollWidth + "px";
+                this.#contentDiv.firstElementChild.style.height = innerWindow.contentWindow.document.body.scrollHeight + "px";
+            }
+
+            let updateSizeInterval = setInterval(updateToInnerSize, 200);
+            this.addEventListener("atariWindowClosed", () => { clearInterval(updateSizeInterval); });
+        }
     }
 
     setContent(newContent) {
         this.#contentDiv.innerHtml = "";
         this.#contentDiv.appendChild(newContent);
+        this.#loadInnerWindow();
+    }
+
+    #loadInnerWindow() {
 
         let innerWindow = this.querySelector("[loadFromUrl]");
         if (innerWindow) {
@@ -41,6 +56,7 @@ class AtariStWindow extends HTMLElement {
         this.appendChild(newWindow);
         this.#setUpWindowDrag(newWindow);
         this.#setUpCloseButton(newWindow);
+        this.#loadInnerWindow();
         this.dispatchEvent(new Event("load"));
         return newWindow;
     }    
@@ -84,6 +100,7 @@ class AtariStWindow extends HTMLElement {
     
     #setUpCloseButton() {
         this.querySelector(".atariStWindowTitlebarClose").addEventListener("click", () => {
+            this.dispatchEvent(new Event("atariWindowClosed"));
             this.addEventListener("animationend", () => this.remove());
             this.setAttribute("windowCloseAnimation", "");
         });
