@@ -55,9 +55,11 @@
                 </div>
                 <div class="atariStDesktopItemLabel">PROJECTS</div>
                 <template class="atariStWindowTemplate">
-                    <project-list>
-                        <div boundField="projects" fieldTemplate="projectListItemTemplate"></div>
-                    </project-list>
+                    <atari-window title="Projects">
+                        <project-list>
+                            <div boundField="projects" fieldTemplate="projectListItemTemplate"></div>
+                        </project-list>
+                    </atari-window>
                 </template>
             </div>
             <div class="atariStDesktopItem" tabindex="-1">
@@ -67,7 +69,9 @@
                 </div>
                 <div class="atariStDesktopItemLabel">CALCULATOR</div>
                 <template class="atariStWindowTemplate">
-                    <iframe id="calcYouLaterFrame" loadFromUrl="https://dameonl.github.io/CalcYouLater/"></iframe>
+                    <atari-window title="Calculator" fitContent>
+                        <iframe id="calcYouLaterFrame" loadFromUrl="./pages/calculator/"></iframe>
+                    </atari-window>
                 </template>
             </div>
             <div class="atariStDesktopItem" tabindex="-1">
@@ -77,7 +81,9 @@
                 </div>
                 <div class="atariStDesktopItemLabel">TODO LIST</div>
                 <template class="atariStWindowTemplate">
-                    <iframe id="calcYouLaterFrame" loadFromUrl="https://dameonl.github.io/ToDoList/"></iframe>
+                    <atari-window title="Todo List">
+                        <iframe id="calcYouLaterFrame" loadFromUrl="./pages/todolist/"></iframe>
+                    </atari-window>
                 </template>
             </div>
         </div>
@@ -87,19 +93,21 @@
     <template id="projectListItemTemplate">
         <div class="atariStWindowContentListItem" boundField="projects">
             <div class="atariStWindowContentListItemLabel" boundField="projects.title" tabindex="-1"></div>
-            <div class="atariStWindow">
-                <div class="projectTitle" boundField="projects.title"></div>
-                <div class="projectListItemLanguge">
-                    <div boundField="projects.language" bindFieldName></div>
-                    <div boundField="projects.language"></div>
-                </div>
+            <template class="projectListItemWindow">
                 <div>
-                    <div boundField="projects.features" bindFieldName></div>
-                    <div boundField="projects.features" fieldTemplate="projectFeatureTemplate"></div>
+                    <div class="projectTitle" boundField="projects.title"></div>
+                    <div boundField="projects.links" fieldTemplate="projectLinkTemplate"></div>
+                    <div class="projectListItemLanguge">
+                        <div boundField="projects.language" bindFieldName></div>
+                        <div boundField="projects.language"></div>
+                    </div>
+                    <div boundField="projects.description"></div>
+                    <div>
+                        <div boundField="projects.features" bindFieldName></div>
+                        <div boundField="projects.features" fieldTemplate="projectFeatureTemplate"></div>
+                    </div>
                 </div>
-                <div boundField="projects.description"></div>
-                <div boundField="projects.links" fieldTemplate="projectLinkTemplate"></div>
-            </div>
+            </template>
         </div>
     </template>
 

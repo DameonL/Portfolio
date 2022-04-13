@@ -1,0 +1,75 @@
+<div class="textEditor">
+    <div class="textEditorToolBar">
+        <div class="toolBarButton">
+            <button id="insertList"><ul><li><span>a</span></li><li><span>b</span></li><li><span>c</span></li></ul></button>
+        </div>
+        <div class="toolBarButton">
+            <button id="insertCheckList"><ul><li><span>☑</span></li><li><span>☑</span></li><li><span>☑</span></li></ul></button>
+        </div>
+        <div class="toolBarButton">
+            <select id="listTypeSelector" name="listTypes">
+                <option value="disc">⚫</option>
+                <option value="none">None</option>
+                <option value="circle">⚪</option>
+                <option value="square">◼</option>
+                <option value="decimal">1,2,3</option>
+                <option value="upper-roman">I,II,III</option>
+                <option value="lower-roman">i,ii,iii</option>
+                <option value="upper-alpha">A,B,C</option>
+                <option value="lower-alpha">a,b,c</option>
+            </select>
+        </div>
+        <div class="toolBarButton">
+            <input id="fontColorSelector" type="color">
+            <div style="
+                position: relative;
+                top: -75%;
+                font-size: 10px;
+                text-align: center;
+                width: 30px;
+                height: 30px;
+                pointer-events: none;
+                ">ABC
+            </div>
+        </div>
+        <div class="toolBarButton">
+            <input id="bgColorSelector" type="color">
+        </div>
+        <div class="toolBarButton">
+            <select id="fontSizeSelector" name="fontSize">
+                <option value="" id="fontSizePlaceholder"> </option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="8px">8</option>
+                <option value="10px">10</option>
+                <option value="12px">12</option>
+                <option value="14px">14</option>
+                <option value="16px" selected>16</option>
+                <option value="18px">18</option>
+                <option value="20px">20</option>
+                <option value="22px">22</option>
+                <option value="24px">24</option>
+            </select>
+        </div>
+        <div class="toolBarButton">
+            <select id="fontWeightDropdown">
+                <option value="0" style="font-weight: 0">B</option>
+                <option value="100" style="font-weight: 100">B</option>
+                <option value="200" style="font-weight: 200">B</option>
+                <option value="300" style="font-weight: 300">B</option>
+                <option value="400" style="font-weight: 400">B</option>
+                <option value="500" style="font-weight: 500">B</option>
+                <option value="600" style="font-weight: 600">B</option>
+                <option value="700" style="font-weight: 700">B</option>
+                <option value="800" style="font-weight: 800">B</option>
+                <option value="900" style="font-weight: 900">B</option>
+            </select>
+        </div>
+
+        <div class="toolBarButton">
+            <button id="italicButton" style="font-style: italic">I</button>
+        </div>
+
+    </div>
+    <div class="editorTarget"></div>
+</div>
