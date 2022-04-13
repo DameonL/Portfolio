@@ -34,7 +34,40 @@
                         <div class="atariStMenuItem">Desk</div>
                         <div class="atariStMenuFoldout">
                             <div id="aboutMeButton" class="atariStMenuItem" tabindex="-1">About Me...</div>
+                            <template id="aboutMeTemplate">
+                                <atari-window title="About Me">
+                                    <div>
+                                        <h3>Dameon Laird</h5>
+                                    </div>
+                                    <div id="aboutMeLanguageList">
+                                        <div>Languages:</div>
+                                        <ul>
+                                            <li>C#</li>
+                                            <li>JavaScript/HTML/CSS</li>
+                                            <li>Java</li>
+                                            <li>C</li>
+                                            <li>Visual Basic</li>
+                                        </ul>
+                                    </div>
+                                    <div id="aboutMeTechnologyList">
+                                        <div>Technologies:</div>
+                                        <ul>
+                                            <li>.NET/.NET Core/ASP.NET</li>
+                                            <li>React/Bootstrap</li>
+                                            <li>Unity</li>
+                                        </ul>
+                                    </div>
+                                </atari-window>
+                            </template>
                             <div id="contactButton" class="atariStMenuItem" tabindex="-1">Contact</div>
+                            <template id="contactTemplate">
+                                <atari-window title="Contact">
+                                    <div id="contactWindow">
+                                        <div>Interested in me or my work? Drop me a line!</div>
+                                        <div id="contactMailToLink"><a href="#">E-mail me today!</a></div>
+                                    </div>
+                                </atari-window>
+                            </template>
                         </div>
                     </div>
                     <div>
@@ -90,6 +123,21 @@
                     </atari-window>
                 </template>
             </div>
+            <div class="atariStDesktopItem" tabindex="-1">
+                <div class="atariStDesktopItemIconFilter"></div>
+                <div class="atariStDesktopItemIcon">
+                    <div class="atariStDesktopItemIconInvert">🔗</div>
+                </div>
+                <div class="atariStDesktopItemLabel">LINKS</div>
+                <template class="atariStWindowTemplate">
+                    <atari-window title="Links">
+                        <div>
+                            <a href="https://www.linkedin.com/in/dameon-laird/" target="_blank">LinkedIn</a>
+                            <a href="https://github.com/DameonL" target="_blank">GitHub</a>
+                        </div>
+                    </atari-window>
+                </template>
+            </div>
         </div>
     </div>
 
@@ -135,40 +183,6 @@
         <ul boundField="projects.features">
             <li boundField="projects.features.text"></li>
         </ul>
-    </template>
-
-    <template id="aboutMeTemplate">
-        <atari-window title="About Me">
-            <div>
-                <h3>Dameon Laird</h5>
-            </div>
-            <div id="aboutMeLanguageList">
-                <div>Languages:</div>
-                <ul>
-                    <li>C#</li>
-                    <li>JavaScript/HTML/CSS</li>
-                    <li>Java</li>
-                    <li>C</li>
-                    <li>Visual Basic</li>
-                </ul>
-            </div>
-            <div id="aboutMeTechnologyList">
-                <div>Technologies:</div>
-                <ul>
-                    <li>.NET/.NET Core/ASP.NET</li>
-                    <li>React/Bootstrap</li>
-                    <li>Unity</li>
-                </ul>
-            </div>
-        </atari-window>
-    </template>
-    <template id="contactTemplate">
-        <atari-window title="Contact">
-            <div id="contactWindow">
-                <div>Interested in me or my work? Drop me a line!</div>
-                <div id="contactMailToLink"><a href="#">E-mail me today!</a></div>
-            </div>
-        </atari-window>
     </template>
 </body>
 
