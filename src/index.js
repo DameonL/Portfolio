@@ -58,15 +58,12 @@ document.querySelectorAll(".atariStMenuItem, .atariStMenuFoldoutItem").forEach(e
     });
 });
 
-document.querySelector("#aboutMeButton").addEventListener("click", () => {
-    let newWindow = document.querySelector("#aboutMeTemplate").content.firstElementChild.cloneNode(true);
-    document.querySelector("#atariStDesktopItems").appendChild(newWindow);
-    newWindow.click();
-});
-
-document.querySelector("#contactButton").addEventListener("click", () => {
-    let newWindow = document.querySelector("#contactTemplate").content.firstElementChild.cloneNode(true);
-    newWindow.querySelector("#contactMailToLink a").addEventListener("click", () => window.open(`mailto:${atob(emailAddress)}`));
-    document.querySelector("#atariStDesktopItems").appendChild(newWindow);
-    newWindow.click();
+document.querySelectorAll(".atariStMenuItem").forEach(menuElement => {
+    if (menuElement.nextElementSibling.nodeName === "TEMPLATE") {
+        menuElement.addEventListener("click", () => {
+            let newWindow = menuElement.nextElementSibling.content.firstElementChild.cloneNode(true);
+            document.querySelector("#atariStDesktopItems").appendChild(newWindow);
+            newWindow.click();
+        });
+    }
 });
