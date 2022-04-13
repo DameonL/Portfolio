@@ -31,6 +31,12 @@ class AtariStWindow extends HTMLElement {
         this.#loadInnerWindow();
     }
 
+    close() {
+        this.dispatchEvent(new Event("atariWindowClosed"));
+        this.addEventListener("animationend", () => this.remove());
+        this.setAttribute("windowCloseAnimation", "");
+    }
+
     #loadInnerWindow() {
 
         let innerWindow = this.querySelector("[loadFromUrl]");
@@ -100,9 +106,7 @@ class AtariStWindow extends HTMLElement {
     
     #setUpCloseButton() {
         this.querySelector(".atariStWindowTitlebarClose").addEventListener("click", () => {
-            this.dispatchEvent(new Event("atariWindowClosed"));
-            this.addEventListener("animationend", () => this.remove());
-            this.setAttribute("windowCloseAnimation", "");
+            this.close();
         });
     }
 }
