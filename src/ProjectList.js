@@ -19,7 +19,9 @@ class ProjectList extends HTMLElement {
         allProjectLabels.forEach(label => {
             label.addEventListener("click", () => {
                 let newWindow = document.createElement("atari-window");
-                let onload = () => {
+                newWindow.setAttribute("boundField", label.parentElement.getAttribute("boundField"));
+                newWindow.setAttribute("boundArrayIndex", label.parentElement.getAttribute("boundArrayIndex"));
+            let onload = () => {
                     newWindow.setContent(label.nextElementSibling.content.firstElementChild.cloneNode(true));
                     newWindow.removeEventListener("load", onload);
                     this.#projectListBinder.bindItemToElement(projectList, newWindow);
