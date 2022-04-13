@@ -70,6 +70,10 @@ atari-window {
 }
 
 @media screen and (min-width: 1024px) {
+    #atariStDesktopItems {
+        flex-wrap: wrap;
+    }
+
     #atariStMenuBarResponsiveLabel {
         display: none;
     }
@@ -145,11 +149,15 @@ atari-window {
 
 #atariStDesktopItems {
     display: flex;
+    align-content: flex-start;
     gap: 1em;
+    overflow: auto;
+    height: 110%;
 }
 
 .atariStDesktopItem {
     width: 10em;
+    height: fit-content;
     text-align: center;
     user-select: none;
 }
