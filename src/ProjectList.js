@@ -1,5 +1,5 @@
 import ItemBinder from "./ItemBinder.js";
-import oldSchoolWindow from "./Windows/OldSchoolWindow.js";
+import OldSchoolWindow from "./Windows/OldSchoolWindow.js";
 
 class ProjectList extends HTMLElement {
     #projectListBinder = null;
