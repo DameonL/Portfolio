@@ -1,4 +1,4 @@
-class oldSchoolWindow extends HTMLElement {
+class OldSchoolWindow extends HTMLElement {
     #contentDiv = null;
 
     constructor() {
