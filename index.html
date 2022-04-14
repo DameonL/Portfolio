@@ -25,17 +25,17 @@
 
     <script src="./src/index.js" type="module" async></script>
 
-    <div id="atariStLook">
-        <div id="atariStMenuBar">
-            <div id="atariStMenuBarResponsiveLabel">Menu</div>
-            <div id="atariStMenuBarResponsive">
-                <div id="atariStMenuBarResponsiveContainer">
+    <div id="oldSchoolLook">
+        <div id="oldSchoolMenuBar">
+            <div id="oldSchoolMenuBarResponsiveLabel">Menu</div>
+            <div id="oldSchoolMenuBarResponsive">
+                <div id="oldSchoolMenuBarResponsiveContainer">
                     <div>
-                        <div class="atariStMenuItem">Desk</div>
-                        <div class="atariStMenuFoldout">
-                            <div id="aboutMeButton" class="atariStMenuItem" tabindex="-1">About Me...</div>
+                        <div class="oldSchoolMenuItem">Desk</div>
+                        <div class="oldSchoolMenuFoldout">
+                            <div id="aboutMeButton" class="oldSchoolMenuItem" tabindex="-1">About Me...</div>
                             <template id="aboutMeTemplate">
-                                <atari-window title="About Me">
+                                <oldschool-window title="About Me">
                                     <div>
                                         <h3>Dameon Laird</h5>
                                     </div>
@@ -57,83 +57,83 @@
                                             <li>Unity</li>
                                         </ul>
                                     </div>
-                                </atari-window>
+                                </oldschool-window>
                             </template>
-                            <div id="contactButton" class="atariStMenuItem" tabindex="-1">Contact</div>
+                            <div id="contactButton" class="oldSchoolMenuItem" tabindex="-1">Contact</div>
                             <template id="contactTemplate">
-                                <atari-window title="Contact">
+                                <oldschool-window title="Contact">
                                     <div id="contactWindow">
                                         <div>Interested in me or my work? Drop me a line!</div>
                                         <div id="contactMailToLink"><a href="#">E-mail me today!</a></div>
                                     </div>
-                                </atari-window>
+                                </oldschool-window>
                             </template>
                         </div>
                     </div>
                     <div>
-                        <div class="atariStMenuItem">File</div>
-                        <div class="atariStMenuFoldout">
-                            <div class="atariStMenuItem" tabindex="-1">Open</div>
-                            <div class="atariStMenuItem" tabindex="-1">Close</div>
+                        <div class="oldSchoolMenuItem">File</div>
+                        <div class="oldSchoolMenuFoldout">
+                            <div class="oldSchoolMenuItem" tabindex="-1">Open</div>
+                            <div class="oldSchoolMenuItem" tabindex="-1">Close</div>
                         </div>
                     </div>
                     <div>
-                        <div class="atariStMenuItem">View</div>
+                        <div class="oldSchoolMenuItem">View</div>
                     </div>
                 </div>
             </div>
 
         </div>
-        <div id="atariStDesktopItems">
-            <div class="atariStDesktopItem" tabindex="-1">
-                <div class="atariStDesktopItemIconFilter"></div>
-                <div class="atariStDesktopItemIcon">
-                    <div class="atariStDesktopItemIconInvert">💾</div>
+        <div id="oldSchoolDesktopItems">
+            <div class="oldSchoolDesktopItem" tabindex="-1">
+                <div class="oldSchoolDesktopItemIconFilter"></div>
+                <div class="oldSchoolDesktopItemIcon">
+                    <div class="oldSchoolDesktopItemIconInvert">💾</div>
                 </div>
-                <div class="atariStDesktopItemLabel">PROJECTS</div>
-                <template class="atariStWindowTemplate">
-                    <atari-window title="Projects">
+                <div class="oldSchoolDesktopItemLabel">PROJECTS</div>
+                <template class="oldSchoolWindowTemplate">
+                    <oldschool-window title="Projects">
                         <project-list>
                             <div boundField="projects" fieldTemplate="projectListItemTemplate"></div>
                         </project-list>
-                    </atari-window>
+                    </oldschool-window>
                 </template>
             </div>
-            <div class="atariStDesktopItem" tabindex="-1">
-                <div class="atariStDesktopItemIconFilter"></div>
-                <div class="atariStDesktopItemIcon">
-                    <div class="atariStDesktopItemIconInvert">🧮</div>
+            <div class="oldSchoolDesktopItem" tabindex="-1">
+                <div class="oldSchoolDesktopItemIconFilter"></div>
+                <div class="oldSchoolDesktopItemIcon">
+                    <div class="oldSchoolDesktopItemIconInvert">🧮</div>
                 </div>
-                <div class="atariStDesktopItemLabel">CALCULATOR</div>
-                <template class="atariStWindowTemplate">
-                    <atari-window title="Calculator" fitContent>
+                <div class="oldSchoolDesktopItemLabel">CALCULATOR</div>
+                <template class="oldSchoolWindowTemplate">
+                    <oldschool-window title="Calculator" fitContent>
                         <iframe id="calcYouLaterFrame" loadFromUrl="./pages/calculator/"></iframe>
-                    </atari-window>
+                    </oldschool-window>
                 </template>
             </div>
-            <div class="atariStDesktopItem" tabindex="-1">
-                <div class="atariStDesktopItemIconFilter"></div>
-                <div class="atariStDesktopItemIcon">
-                    <div class="atariStDesktopItemIconInvert">📋</div>
+            <div class="oldSchoolDesktopItem" tabindex="-1">
+                <div class="oldSchoolDesktopItemIconFilter"></div>
+                <div class="oldSchoolDesktopItemIcon">
+                    <div class="oldSchoolDesktopItemIconInvert">📋</div>
                 </div>
-                <div class="atariStDesktopItemLabel">TODO LIST</div>
-                <template class="atariStWindowTemplate">
-                    <atari-window title="Todo List">
+                <div class="oldSchoolDesktopItemLabel">TODO LIST</div>
+                <template class="oldSchoolWindowTemplate">
+                    <oldschool-window title="Todo List">
                         <iframe id="calcYouLaterFrame" loadFromUrl="./pages/todolist/"></iframe>
-                    </atari-window>
+                    </oldschool-window>
                 </template>
             </div>
-            <div class="atariStDesktopItem" tabindex="-1">
-                <div class="atariStDesktopItemIconFilter"></div>
-                <div class="atariStDesktopItemIcon">
-                    <div class="atariStDesktopItemIconInvert">🕹️</div>
+            <div class="oldSchoolDesktopItem" tabindex="-1">
+                <div class="oldSchoolDesktopItemIconFilter"></div>
+                <div class="oldSchoolDesktopItemIcon">
+                    <div class="oldSchoolDesktopItemIconInvert">🕹️</div>
                 </div>
-                <div class="atariStDesktopItemLabel">Games</div>
-                <template class="atariStWindowTemplate">
-                    <atari-window title="Games">
-                        <div><a href="./pages/match3/">Match 3</a></div>
-                        <div><a href="./pages/beyondblueskies/">Beyond Blue Skies</a></div>
-                    </atari-window>
+                <div class="oldSchoolDesktopItemLabel">Games</div>
+                <template class="oldSchoolWindowTemplate">
+                    <oldschool-window title="Games">
+                        <div class="oldSchoolWindowContentListItemLabel"><a href="./pages/match3/">Match 3</a></div>
+                        <div class="oldSchoolWindowContentListItemLabel"><a href="./pages/beyondblueskies/">Beyond Blue Skies</a></div>
+                    </oldschool-window>
                 </template>
             </div>
         </div>
@@ -141,8 +141,8 @@
 
     <!-- Templates -->
     <template id="projectListItemTemplate">
-        <div class="atariStWindowContentListItem" boundField="projects">
-            <div class="atariStWindowContentListItemLabel" boundField="projects.title" tabindex="-1"></div>
+        <div class="oldSchoolWindowContentListItem" boundField="projects">
+            <div class="oldSchoolWindowContentListItemLabel" boundField="projects.title" tabindex="-1"></div>
             <template class="projectListItemWindow">
                 <div>
                     <div class="projectTitle" boundField="projects.title"></div>
@@ -166,13 +166,13 @@
                     boundField="projects.links.linkText"></span></a></div>
     </template>
 
-    <template id="atariStWindowTemplate">
-        <div class="atariStWindow">
-            <div class="atariStWindowTitlebar">
-                <div class="atariStWindowTitlebarClose"></div>
-                <div class="atariStWindowTitlebarLabel"></div>
+    <template id="oldSchoolWindowTemplate">
+        <div class="oldSchoolWindow">
+            <div class="oldSchoolWindowTitlebar">
+                <div class="oldSchoolWindowTitlebarClose"></div>
+                <div class="oldSchoolWindowTitlebarLabel"></div>
             </div>
-            <div class="atariStWindowContent">
+            <div class="oldSchoolWindowContent">
             </div>
         </div>
     </template>

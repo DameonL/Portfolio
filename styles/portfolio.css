@@ -7,13 +7,18 @@
     background-color: unset;
 }
 
-atari-window {
+a {
+    color: unset;
+    text-decoration: unset;
+}
+
+oldschool-window {
     display: block;
     position: absolute;
 }
 
 @font-face {
-    font-family: 'AtariClassicChunky';
+    font-family: 'oldSchoolClassicChunky';
     font-style: normal;
     font-weight: 400;
     src: local('AtariClassicChunky'), url("../fonts/AtariClassicChunky.woff") format('woff');
@@ -30,68 +35,68 @@ atari-window {
 }
 
 @media screen and (max-width: 1023px) {
-    #atariStDesktopItems {
+    #oldSchoolDesktopItems {
         flex-direction: column;
     }
 
-    #atariStMenuBarResponsive {
+    #oldSchoolMenuBarResponsive {
         display: none;
         background-color: black;
         animation: animateResponsiveMenu 500ms;
         transform-origin: top;
     }
 
-    #atariStMenuBarResponsiveContainer {
+    #oldSchoolMenuBarResponsiveContainer {
         flex-direction: column;
         border-bottom: .3em solid black;
         background-color: black;
     }
     
-    .atariStMenuItem {
+    .oldSchoolMenuItem {
         padding-left: 15vw;
         padding-right: 5vw;
     }
     
-    .atariStMenuFoldout {
+    .oldSchoolMenuFoldout {
         left: 0;
         right: 0;
     }
     
-    .atariStWindow {
+    .oldSchoolWindow {
         position: absolute;
         background-color: var(--system-backgroundColor);
         outline: .2em solid black;
     }
 
-    .atariStWindowContent {
+    .oldSchoolWindowContent {
         height: 500px;
     }
 
 }
 
 @media screen and (min-width: 1024px) {
-    #atariStDesktopItems {
+    #oldSchoolDesktopItems {
         flex-wrap: wrap;
     }
 
-    #atariStMenuBarResponsiveLabel {
+    #oldSchoolMenuBarResponsiveLabel {
         display: none;
     }
 
-    #atariStMenuBarResponsive {
+    #oldSchoolMenuBarResponsive {
         display: flex;
         padding-left: 10vw;
     }
 }
 
-#atariStLook {
+#oldSchoolLook {
     background-color: #00e000;
     position: fixed;
     left: 0px;
     right: 0px;
     top: 0px;
     bottom: 0px;
-    font-family: 'AtariClassicChunky', sans-serif;
+    font-family: 'oldSchoolClassicChunky', sans-serif;
     font-size: 1.5em;
     flex: 1;
     display: flex;
@@ -100,19 +105,19 @@ atari-window {
     flex-direction: column;
 }
 
-#atariStMenuBar {
+#oldSchoolMenuBar {
     background-color: var(--system-backgroundColor);
     height: 2.2em;
     border-bottom: .3em solid black;
 }
 
-#atariStMenuBarResponsive {
+#oldSchoolMenuBarResponsive {
     position: relative;
     z-index: 1000;
     height: 100%;
 }
 
-#atariStMenuBarResponsiveContainer {
+#oldSchoolMenuBarResponsiveContainer {
     padding-left: .1vw;
     padding-right: .1vw;
     display: flex;
@@ -121,11 +126,11 @@ atari-window {
     overflow: hidden;
 }
 
-#atariStMenuBarResponsiveContainer > * {
+#oldSchoolMenuBarResponsiveContainer > * {
     cursor: pointer;
 }
 
-.atariStMenuItem {
+.oldSchoolMenuItem {
     user-select: none;
     margin-top: auto;
     background-color: var(--system-backgroundColor);
@@ -134,7 +139,7 @@ atari-window {
     width: 100%;
 }
 
-.atariStMenuFoldout {
+.oldSchoolMenuFoldout {
     display: none;
     flex-direction: column;
     position: absolute;
@@ -146,25 +151,25 @@ atari-window {
 
 }
 
-.atariStMenuItem, .atariStMenuFoldout {
+.oldSchoolMenuItem, .oldSchoolMenuFoldout {
     margin-left: 1vw;
     margin-right: 1vw;
 }
 
-#atariStDesktopItems {
+#oldSchoolDesktopItems {
     display: flex;
     align-content: flex-start;
     gap: 1em;
 }
 
-.atariStDesktopItem {
+.oldSchoolDesktopItem {
     width: 10em;
     height: fit-content;
     text-align: center;
     user-select: none;
 }
 
-.atariStDesktopItemIcon {
+.oldSchoolDesktopItemIcon {
     filter: grayscale(100%);
     cursor: pointer;
     font-size: 3em;
@@ -172,7 +177,7 @@ atari-window {
     height: 1.3em;
 }
 
-.atariStDesktopItemIconFilter {
+.oldSchoolDesktopItemIconFilter {
     position: absolute;
     height: 4em;
     width: 4em;
@@ -181,21 +186,21 @@ atari-window {
     margin-right: 3em;
 }
 
-.atariStDesktopItemLabel {
+.oldSchoolDesktopItemLabel {
     background-color: var(--system-backgroundColor);
     color: black;
 }
 
-.atariStDesktopItem:focus > .atariStDesktopItemLabel, .atariStDesktopItem:hover > .atariStDesktopItemLabel {
+.oldSchoolDesktopItem:focus > .oldSchoolDesktopItemLabel, .oldSchoolDesktopItem:hover > .oldSchoolDesktopItemLabel {
     background-color: black;
     color: var(--system-backgroundColor);
 }
 
-.atariStDesktopItem:focus > .atariStDesktopItemIcon > .atariStDesktopItemIconInvert, .atariStDesktopItem:hover > .atariStDesktopItemIcon > .atariStDesktopItemIconInvert {
+.oldSchoolDesktopItem:focus > .oldSchoolDesktopItemIcon > .oldSchoolDesktopItemIconInvert, .oldSchoolDesktopItem:hover > .oldSchoolDesktopItemIcon > .oldSchoolDesktopItemIconInvert {
     filter: invert(1);
 }
 
-.atariStWindow {
+.oldSchoolWindow {
     position: absolute;
     background-color: var(--system-backgroundColor);
     outline: .2em solid black;
@@ -216,7 +221,7 @@ atari-window {
     }
 }
 
-.atariStWindowTitlebar {
+.oldSchoolWindowTitlebar {
     height: 1.5em;
     background: var(--dottedBackground) repeat;
     display: flex;
@@ -226,7 +231,7 @@ atari-window {
     user-select: none;
 }
 
-.atariStWindowTitlebarClose {
+.oldSchoolWindowTitlebarClose {
     border-right: .2em solid black;
     width: 1.5em;
     min-width: 15px;
@@ -238,7 +243,7 @@ atari-window {
     background-color: var(--system-backgroundColor);
 }
 
-.atariStWindowTitlebarClose:active {
+.oldSchoolWindowTitlebarClose:active {
     filter: invert(1);
 }
 
@@ -258,14 +263,14 @@ atari-window {
     }
 }
 
-.atariStWindowTitlebarLabel {
+.oldSchoolWindowTitlebarLabel {
     width: 100%;
     margin-top: auto;
     margin-bottom: auto;
     text-align: center;
 }
 
-.atariStWindowContent {
+.oldSchoolWindowContent {
     overflow: scroll;
     overflow-wrap: break-word;
     resize: both;
@@ -285,18 +290,18 @@ atari-window {
 
 }
 
-.atariStWindowContentListItemLabel {
+.oldSchoolWindowContentListItemLabel {
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
 }
 
-.atariStWindowContentListItemLabel:focus {
+.oldSchoolWindowContentListItemLabel:focus {
     filter: invert();
     background-color: var(--system-backgroundColor);
 }
 
-.atariStWindowContentListItemLabel  + .atariStWindow {
+.oldSchoolWindowContentListItemLabel  + .oldSchoolWindow {
     display: none;
     background-color: var(--system-backgroundColor);
     position: absolute;
@@ -307,7 +312,7 @@ atari-window {
     bottom: 0px;
 }
 
-.atariStMenuItemActive, .atariStMenuItem:focus, .atariStMenuItem:hover {
+.oldSchoolMenuItemActive, .oldSchoolMenuItem:focus, .oldSchoolMenuItem:hover {
     color: var(--system-backgroundColor);
     background-color: black;
 }

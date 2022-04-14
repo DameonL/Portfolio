@@ -1,40 +1,40 @@
 import ProjectList from "./ProjectList.js";
-import AtariStWindow from "./Windows/AtariStWindow.js";
+import OldSchoolWindow from "./Windows/OldSchoolWindow.js";
 customElements.define("project-list", ProjectList);
-customElements.define("atari-window", AtariStWindow);
+customElements.define("oldschool-window", OldSchoolWindow);
 
 let emailAddress = "ZGFtZW9ubGFpckBnbWFpbC5jb20=";
 
-document.querySelectorAll(".atariStDesktopItem").forEach(element => {
+document.querySelectorAll(".oldSchoolDesktopItem").forEach(element => {
     element.addEventListener("click", () => {
-        let newWindow = element.querySelector(".atariStWindowTemplate").content.firstElementChild.cloneNode(true);
-        document.querySelector("#atariStDesktopItems").appendChild(newWindow);
+        let newWindow = element.querySelector(".oldSchoolWindowTemplate").content.firstElementChild.cloneNode(true);
+        document.querySelector("#oldSchoolDesktopItems").appendChild(newWindow);
     });
 });
 
 document.body.addEventListener("click", (event) => {
     let target = event.target;
     while (target != document.body) {
-        if (target.id === "atariStMenuBar") {
+        if (target.id === "oldSchoolMenuBar") {
             break;
         }
         target = target.parentElement;
     }
 
     if (target == document.body) {
-        document.querySelector("#atariStMenuBarResponsive").style.display = "";
+        document.querySelector("#oldSchoolMenuBarResponsive").style.display = "";
 
-        document.querySelectorAll(".atariStMenuFoldout").forEach(element => {
+        document.querySelectorAll(".oldSchoolMenuFoldout").forEach(element => {
             element.style.display = "";
         });
     }
 });
 
-document.querySelector("#atariStMenuBarResponsiveLabel").addEventListener("click", () => {
-    document.querySelector("#atariStMenuBarResponsive").style.display = "block";
+document.querySelector("#oldSchoolMenuBarResponsiveLabel").addEventListener("click", () => {
+    document.querySelector("#oldSchoolMenuBarResponsive").style.display = "block";
 });
 
-document.querySelectorAll(".atariStMenuFoldout").forEach(element => {
+document.querySelectorAll(".oldSchoolMenuFoldout").forEach(element => {
     element.previousElementSibling.addEventListener("click", () => {
         element.style.display = (element.style.display == "") ? "flex" : "";
     });
@@ -46,23 +46,23 @@ document.querySelectorAll(".atariStMenuFoldout").forEach(element => {
     });
 });
 
-document.querySelectorAll(".atariStMenuItem, .atariStMenuFoldoutItem").forEach(element => {
+document.querySelectorAll(".oldSchoolMenuItem, .oldSchoolMenuFoldoutItem").forEach(element => {
     element.addEventListener("click", () => {
-        element.classList.add("atariStMenuItemActive");
+        element.classList.add("oldSchoolMenuItemActive");
     });
 
     document.addEventListener("click", (event) => {
         if (event.target != element && !element.contains(event.target)) {
-            element.classList.remove("atariStMenuItemActive");
+            element.classList.remove("oldSchoolMenuItemActive");
         }
     });
 });
 
-document.querySelectorAll(".atariStMenuItem").forEach(menuElement => {
+document.querySelectorAll(".oldSchoolMenuItem").forEach(menuElement => {
     if ((menuElement.nextElementSibling) && (menuElement.nextElementSibling.nodeName === "TEMPLATE")) {
         menuElement.addEventListener("click", () => {
             let newWindow = menuElement.nextElementSibling.content.firstElementChild.cloneNode(true);
-            document.querySelector("#atariStDesktopItems").appendChild(newWindow);
+            document.querySelector("#oldSchoolDesktopItems").appendChild(newWindow);
             newWindow.click();
         });
     }
