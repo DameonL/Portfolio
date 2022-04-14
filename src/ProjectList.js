@@ -1,5 +1,5 @@
 import ItemBinder from "./ItemBinder.js";
-import AtariStWindow from "./Windows/AtariStWindow.js";
+import oldSchoolWindow from "./Windows/oldSchoolWindow.js";
 
 class ProjectList extends HTMLElement {
     #projectListBinder = null;
@@ -15,19 +15,19 @@ class ProjectList extends HTMLElement {
         let projectList = await fetch("./src/ProjectList.json");
         projectList = await projectList.json();
         this.#projectListBinder.bindItemToElement(projectList, this);
-        let allProjectLabels = this.querySelectorAll(".atariStWindowContentListItemLabel");
+        let allProjectLabels = this.querySelectorAll(".oldSchoolWindowContentListItemLabel");
         allProjectLabels.forEach(label => {
             label.addEventListener("click", () => {
-                let newWindow = document.createElement("atari-window");
+                let newWindow = document.createElement("oldSchool-window");
                 newWindow.setAttribute("boundField", label.parentElement.getAttribute("boundField"));
                 newWindow.setAttribute("boundArrayIndex", label.parentElement.getAttribute("boundArrayIndex"));
-            let onload = () => {
+                let onload = () => {
                     newWindow.setContent(label.nextElementSibling.content.firstElementChild.cloneNode(true));
                     newWindow.removeEventListener("load", onload);
                     this.#projectListBinder.bindItemToElement(projectList, newWindow);
                 }
                 newWindow.addEventListener("load", onload);
-                document.querySelector("#atariStDesktopItems").appendChild(newWindow);
+                document.querySelector("#oldSchoolDesktopItems").appendChild(newWindow);
             });
         });
     }
