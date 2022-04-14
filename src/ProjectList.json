@@ -30,6 +30,10 @@
                 {
                     "linkText": "Code Samples Available Upon Request",
                     "link": ""
+                },
+                {
+                    "linkText": "Try it!",
+                    "link": "https://dameonl.github.io/Portfolio/pages/beyondblueskies/"
                 }
             ],
             "description": "A full-featured mobile shoot 'em up game with RPG mechanics, featuring an original soundtrack, dialogue, and unlockable content. The player steers a spaceship through procedurally created levels, fighting a variety of enemies and avoiding environmental obstacles while collecting power-ups.",
@@ -107,6 +111,10 @@
                 {
                     "linkText": "Source Code",
                     "link": "https://github.com/DameonL/MatchThreeUnity"
+                },
+                {
+                    "linkText": "Try it!",
+                    "link": "https://dameonl.github.io/Portfolio/pages/match3/"
                 }
             ],
             "description": "An example Match Three game for the Unity3D game engine which provides an expandable framework to create Match Three style games.",

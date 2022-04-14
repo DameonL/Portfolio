@@ -93,7 +93,11 @@ atari-window {
     bottom: 0px;
     font-family: 'AtariClassicChunky', sans-serif;
     font-size: 1.5em;
-    cursor: "🐝" auto;
+    flex: 1;
+    display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
 }
 
 #atariStMenuBar {
@@ -151,8 +155,6 @@ atari-window {
     display: flex;
     align-content: flex-start;
     gap: 1em;
-    overflow: auto;
-    height: 110%;
 }
 
 .atariStDesktopItem {
