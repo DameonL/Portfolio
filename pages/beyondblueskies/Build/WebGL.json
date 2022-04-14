@@ -1,0 +1,18 @@
+{
+"companyName": "Dameon Laird",
+"productName": "Beyond Blue Skies",
+"productVersion": "0.5",
+"dataUrl": "WebGL.data.unityweb",
+"asmCodeUrl": "WebGL.asm.code.unityweb",
+"asmMemoryUrl": "WebGL.asm.memory.unityweb",
+"asmFrameworkUrl": "WebGL.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"backgroundUrl": "WebGL.jpg",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#FFFFFF",
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.1.7f1"
+}
