@@ -111,4 +111,4 @@ class oldSchoolWindow extends HTMLElement {
     }
 }
 
-export default oldSchoolWindow;
+export default OldSchoolWindow;
