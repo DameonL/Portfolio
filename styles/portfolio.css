@@ -8,7 +8,7 @@
 }
 
 a {
-    color: unset;
+    color: inherit;
     text-decoration: unset;
 }
 
@@ -296,7 +296,7 @@ oldschool-window {
     white-space: nowrap;
 }
 
-.oldSchoolWindowContentListItemLabel:focus {
+.oldSchoolWindowContentListItemLabel:focus, .oldSchoolWindowContentListItemLabel:hover {
     filter: invert();
     background-color: var(--system-backgroundColor);
 }
@@ -313,8 +313,8 @@ oldschool-window {
 }
 
 .oldSchoolMenuItemActive, .oldSchoolMenuItem:focus, .oldSchoolMenuItem:hover {
-    color: var(--system-backgroundColor);
-    background-color: black;
+    color: var(--system-backgroundColor) !important;
+    background-color: black !important;
 }
 
 ::-webkit-scrollbar, ::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-corner {
