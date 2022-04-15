@@ -17,6 +17,12 @@ oldschool-window {
     position: absolute;
 }
 
+.oldSchoolWindowContent > iframe {
+    border-width: 0px;
+    position: relative;
+    resize: both;
+}
+
 @font-face {
     font-family: 'oldSchoolClassicChunky';
     font-style: normal;
@@ -286,8 +292,6 @@ oldschool-window {
     right: 0;
     width: 100%;
     height: 100%;
-    resize: both;
-
 }
 
 .oldSchoolWindowContentListItemLabel {
