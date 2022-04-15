@@ -16,8 +16,12 @@ class OldSchoolWindow extends HTMLElement {
         if (this.hasAttribute("fitContent")) {
             let innerWindow = this.querySelector("[loadFromUrl]");
             let updateToInnerSize = () => {
-                this.#contentDiv.firstElementChild.style.width = innerWindow.contentWindow.document.body.scrollWidth + "px";
-                this.#contentDiv.firstElementChild.style.height = innerWindow.contentWindow.document.body.scrollHeight + "px";
+                let width = innerWindow.contentWindow.document.body.scrollWidth;
+                let height = innerWindow.contentWindow.document.body.scrollHeight;
+                width = Math.max(width, this.#contentDiv.offsetWidth);
+                height = Math.max(height, this.#contentDiv.offsetHeight);
+                this.#contentDiv.firstElementChild.style.width = `${width}px`;
+                this.#contentDiv.firstElementChild.style.height = `${height}px`;
             }
 
             let updateSizeInterval = setInterval(updateToInnerSize, 200);
