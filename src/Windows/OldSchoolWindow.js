@@ -12,21 +12,6 @@ class OldSchoolWindow extends HTMLElement {
         setTimeout(() => {
             this.#createWindow(innerElements);
         });
-
-        if (this.hasAttribute("fitContent")) {
-            let innerWindow = this.querySelector("[loadFromUrl]");
-            let updateToInnerSize = () => {
-                let width = innerWindow.contentWindow.document.body.scrollWidth;
-                let height = innerWindow.contentWindow.document.body.scrollHeight;
-                width = Math.max(width, this.#contentDiv.offsetWidth);
-                height = Math.max(height, this.#contentDiv.offsetHeight);
-                this.#contentDiv.firstElementChild.style.width = `${width}px`;
-                this.#contentDiv.firstElementChild.style.height = `${height}px`;
-            }
-
-            let updateSizeInterval = setInterval(updateToInnerSize, 200);
-            this.addEventListener("oldSchoolWindowClosed", () => { clearInterval(updateSizeInterval); });
-        }
     }
 
     setContent(newContent) {
@@ -42,10 +27,22 @@ class OldSchoolWindow extends HTMLElement {
     }
 
     #loadInnerWindow() {
-
         let innerWindow = this.querySelector("[loadFromUrl]");
         if (innerWindow) {
+            this.#contentDiv.addEventListener("resize", () => { console.log("resize"); });
+            innerWindow.style.resize = "none";
             innerWindow.setAttribute("src", innerWindow.getAttribute("loadFromUrl"));
+            innerWindow.addEventListener("load", () => {
+                innerWindow.contentWindow.document.querySelector("html").style.overflow = "hidden";
+            });
+
+            let updateToInnerSize = () => {
+                innerWindow.style.height = `${innerWindow.contentWindow.document.body.scrollHeight}px`;
+//                innerWindow.style.width = `${innerWindow.contentWindow.document.body.scrollWidth}px`;
+            }
+
+            let updateSizeInterval = setInterval(updateToInnerSize, 200);
+            this.addEventListener("oldSchoolWindowClosed", () => { clearInterval(updateSizeInterval); });
         }
     }
 
