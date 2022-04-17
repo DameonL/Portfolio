@@ -1,7 +1,9 @@
 import ProjectList from "./ProjectList.js";
 import OldSchoolWindow from "./Windows/OldSchoolWindow.js";
+import FetchHtmlElement from "./FetchHtmlElement.js";
 customElements.define("project-list", ProjectList);
 customElements.define("oldschool-window", OldSchoolWindow);
+customElements.define("fetch-element", FetchHtmlElement);
 
 let emailAddress = "ZGFtZW9ubGFpckBnbWFpbC5jb20=";
 
