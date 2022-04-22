@@ -8,8 +8,11 @@
 }
 
 a {
-    color: inherit;
-    text-decoration: unset;
+    color: #a700e9;
+}
+
+a:hover {
+    color: #8700c9;
 }
 
 oldschool-window {
