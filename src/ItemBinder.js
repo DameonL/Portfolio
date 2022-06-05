@@ -32,7 +32,7 @@ class ItemBinder {
             const currentField = this.#getFieldFromPath(itemToBind, boundElement);
 
             if (boundElement.hasAttribute("bindFieldName")) {
-                const pathEndRegex = /(?<=.)\w*$/;
+                const pathEndRegex = /\w*$/;
                 boundElement.innerText = pathEndRegex.exec(boundElement.getAttribute("boundField"));
                 boundElement.innerText = `${boundElement.innerText[0].toUpperCase()}${boundElement.innerText.substring(1)}`;
             } else if (boundElement.hasAttribute("boundAttribute")) {
