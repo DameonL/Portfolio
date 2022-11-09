@@ -37,7 +37,7 @@ class OldSchoolWindow extends HTMLElement {
 
             let updateToInnerSize = () => {
                 innerWindow.style.height = `${innerWindow.contentWindow.document.body.scrollHeight}px`;
-                innerWindow.style.width = `${innerWindow.contentWindow.document.body.scrollWidth}px`;
+                innerWindow.style.width = `${innerWindow.contentWindow.document.body.scrollWidth}px`; 
             }
     
             let updateSizeInterval = setInterval(updateToInnerSize, 200);
