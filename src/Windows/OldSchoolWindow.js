@@ -29,16 +29,15 @@ class OldSchoolWindow extends HTMLElement {
     #loadInnerWindow() {
         let innerWindow = this.querySelector("[loadFromUrl]");
         if (innerWindow) {
-            this.#contentDiv.addEventListener("resize", () => { console.log("resize"); });
             innerWindow.style.resize = "none";
             innerWindow.setAttribute("src", innerWindow.getAttribute("loadFromUrl"));
-            
             innerWindow.addEventListener("load", () => {
                 innerWindow.contentWindow.document.querySelector("html").style.overflow = "hidden";
             });
 
             let updateToInnerSize = () => {
                 innerWindow.style.height = `${innerWindow.contentWindow.document.body.scrollHeight}px`;
+                innerWindow.style.width = `${innerWindow.contentWindow.document.body.scrollWidth}px`;
             }
     
             let updateSizeInterval = setInterval(updateToInnerSize, 200);
@@ -54,6 +53,11 @@ class OldSchoolWindow extends HTMLElement {
         innerElements.forEach(element => {
             this.#contentDiv.appendChild(element);
         });
+
+        let contentWidth = Math.min(600, window.innerWidth * .9) - 30;
+        let contentHeight = Math.min(600, window.innerHeight * .9) - 30;
+        this.#contentDiv.style.width = `${contentWidth}px`;
+        this.#contentDiv.style.height = `${contentHeight}px`;
 
         this.appendChild(newWindow);
         this.#setUpWindowDrag(newWindow);
