@@ -34,9 +34,6 @@ class OldSchoolWindow extends HTMLElement {
             innerWindow.addEventListener("load", () => {
                 innerWindow.contentWindow.document.querySelector("html").style.overflow = "hidden";
             });
-
-            let updateSizeInterval = setInterval(updateToInnerSize, 200);
-            this.addEventListener("oldSchoolWindowClosed", () => { clearInterval(updateSizeInterval); });
         }
     }
 
