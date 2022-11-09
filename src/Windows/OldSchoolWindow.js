@@ -32,9 +32,17 @@ class OldSchoolWindow extends HTMLElement {
             this.#contentDiv.addEventListener("resize", () => { console.log("resize"); });
             innerWindow.style.resize = "none";
             innerWindow.setAttribute("src", innerWindow.getAttribute("loadFromUrl"));
+            
             innerWindow.addEventListener("load", () => {
                 innerWindow.contentWindow.document.querySelector("html").style.overflow = "hidden";
             });
+
+            let updateToInnerSize = () => {
+                innerWindow.style.height = `${innerWindow.contentWindow.document.body.scrollHeight}px`;
+            }
+    
+            let updateSizeInterval = setInterval(updateToInnerSize, 200);
+            this.addEventListener("oldSchoolWindowClosed", () => { clearInterval(updateSizeInterval); });
         }
     }
 
