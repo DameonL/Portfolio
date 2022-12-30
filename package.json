@@ -2,26 +2,19 @@
   "name": "dameons-portfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "workspaces": [
+    "back",
+    "front"
+  ],
   "scripts": {
-    "build-back": "copy-files-from-to && cd back && npm run-script build && cd ../deploy && npm ci",
-    "build-front": "cd front && npm run-script build",
-    "watch-back": "nodemon --watch back/src --exec \"npm run build-back\" -e ts,js,json",
-    "watch-front": "nodemon --watch front/src --exec \"npm run build-front\" -e ts,tsx,js,jsx,json,html",
-    "build": "concurrently \"npm run build-back\" \"npm run build-front\"",
-    "watch": "concurrently \"npm run watch-back\" \"npm run watch-front\""
+    "build": "concurrently \"npm run build --workspace back\" \"npm run build --workspace front\"",
+    "watch": "concurrently \"npm run watch --workspace back\" \"npm run watch --workspace front\"",
+    "dev": "concurrently \"npm run dev --workspace back\" \"npm run dev --workspace front\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^7.6.0",
-    "copy-files-from-to": "^3.6.0",
     "nodemon": "^2.0.20"
-  },
-  "copyFiles": [
-    {
-      "from": "back/package.json",
-      "to": "deploy/package.json"
-    }
-  ]
+  }
 }

@@ -1,5 +1,5 @@
-import { h } from "preact"
+import Desktop from "./desktop/Desktop";
 
 export default function Main() {
-  return <div>Main</div>
+  return <div><Desktop /></div>
 }
