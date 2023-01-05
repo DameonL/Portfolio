@@ -16,5 +16,9 @@
   "dependencies": {
     "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "eslint-plugin-css-modules": "^2.11.0",
+    "typescript-plugin-css-modules": "^4.1.1"
   }
 }

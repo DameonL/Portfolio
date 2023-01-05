@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'oldSchoolClassicChunky';
+  font-style: normal;
+  font-weight: 400;
+  src: local('AtariClassicChunky'), url("../fonts/AtariClassicChunky.woff") format('woff');
+}
+
+body {
+  background-color: var(--systemBackgroundColor);
+  font-family: 'oldSchoolClassicChunky', sans-serif;
+  font-size: 1.5em;
+}
+
+.desktop {
+  display: flex;
+  width: 100%;
+}
+
+.desktopMenu {
+  background-color: var(--titleBarColor);
+  height: 1em;
+  width: 100%;
+}

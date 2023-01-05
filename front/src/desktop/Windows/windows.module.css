@@ -1,0 +1,20 @@
+.desktopWindowContainer {
+  position: absolute;
+}
+
+.desktopWindow {
+  position: absolute;
+  border: 1px solid black;
+}
+
+.desktopWindowTitlebar {
+  height: 1em;
+  padding: 0.1em;
+  background-color: var(--titleBarColor);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.desktopWindowContent {
+  padding: 0.5em;
+}

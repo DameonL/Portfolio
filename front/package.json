@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "vite build",
-    "watch": "nodemon --watch src --exec \"npm run build\" -e ts,tsx,js,jsx,json,html,css",
+    "watch": "nodemon --watch src --watch tsconfig.json --watch vite.config.js --exec \"npm run build\" -e ts,tsx,js,jsx,json,html,css",
     "dev": "npm run watch"
   },
   "author": "",
