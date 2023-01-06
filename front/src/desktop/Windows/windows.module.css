@@ -1,20 +1,48 @@
 .desktopWindowContainer {
-  position: absolute;
+  position: static;
 }
 
 .desktopWindow {
   position: absolute;
-  border: 1px solid black;
+  border: 0.2em solid black;
+  box-shadow: 0.3em 0.3em 0em rgb(0, 0, 0, 0.5);
+  background-color: var(--systemBackgroundColor);
 }
 
-.desktopWindowTitlebar {
+.titlebar {
+  width: inherit;
   height: 1em;
   padding: 0.1em;
-  background-color: var(--titleBarColor);
+  background-color: var(--systemBackgroundColor);
   user-select: none;
   white-space: nowrap;
+  display: flex;
+  border-bottom: 0.2em solid black;
+  overflow: hidden;
+  background: var(--dottedBackground);
 }
 
-.desktopWindowContent {
+.title {
+  max-width: calc(100% - 1.5em);
+  position: absolute;
+  overflow: hidden;
+}
+
+.closeButton {
+  width: 1em;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAENJREFUKFNjZECA/0hsZCYjiAMm8CiGy4MYIJOQNcBMRhGDKcRmOswisEZkhXidQpZCdI9htZoozxAdPChWYAl0sG0AkToSBTGNSd4AAAAASUVORK5CYII=);
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: var(--systemBackgroundColor);
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.content {
   padding: 0.5em;
+  overflow: scroll;
+  resize: both;
+  min-width: 10em;
+  min-height: 10em;
 }

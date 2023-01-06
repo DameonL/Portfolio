@@ -6,23 +6,24 @@ import styles from "./windows.module.css";
 
 interface DesktopWindowProps {
   state: DesktopWindowState;
-  updateState: (newState: DesktopWindowState) => void;
   content: VNode<HTMLElement>;
 }
 
 export default function DesktopWindow(props: DesktopWindowProps) {
-  const { state, content, updateState } = props;
+  const { state, content } = props;
   const titlebarRef = useRef<HTMLDivElement>(null);
   const windowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!titlebarRef.current || !windowRef.current) return;
+    if (state.size.width < windowRef.current.offsetWidth) {
+      state.size.width = windowRef.current.offsetWidth;
+    }
 
     const dragSettings = makeDraggable(
       titlebarRef.current,
       windowRef.current,
-      state,
-      updateState
+      state
     );
     dragSettings.register();
     return () => {
@@ -34,12 +35,22 @@ export default function DesktopWindow(props: DesktopWindowProps) {
     <div
       ref={windowRef}
       class={styles.desktopWindow}
-      style={`left: ${state.position.x}px; top: ${state.position.y}px; z-index: ${state.position.z}; `}
+      style={`left: ${state.position.x}px; top: ${
+        state.position.y
+      }px; z-index: ${state.position.z}; cursor: ${
+        state.dragging ? "grabbing" : "grab"
+      };`}
     >
-      <div ref={titlebarRef} class={styles.desktopWindowTitlebar}>
-        {state.title}
+      <div ref={titlebarRef} class={styles.titlebar}>
+        <div class={styles.title}>{state.title}</div>
+        <div class={styles.closeButton} onClick={() => state.close()}></div>
       </div>
-      <div class={styles.desktopWindowContent}>{content}</div>
+      <div
+        class={styles.content}
+        style={`height: ${state.size.height}px; width: ${state.size.width}px;`}
+      >
+        {content}
+      </div>
     </div>
   );
 }
