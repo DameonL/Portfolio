@@ -74,14 +74,14 @@ export default function Desktop() {
         <DesktopWindows windows={windows} />
         <DesktopIcon
           label="GitHub"
-          image={<img src="./img/github-mark-white.svg" />}
+          image={<img draggable={false} src="./img/github-mark-white.svg" />}
           onClick={() => {
             window.open("https://github.com/DameonL", "_blank");
           }}
         />
         <DesktopIcon
           label="LinkedIn"
-          image={<img style={{ filter: "grayscale(1) invert(1) brightness(2)" }} src="./img/LI-In-Bug.png" />}
+          image={<img draggable={false} style={{ filter: "grayscale(1) invert(1) brightness(2)" }} src="./img/LI-In-Bug.png" />}
           onClick={() => {
             window.open("https://www.linkedin.com/in/dameon-laird/", "_blank");
           }}

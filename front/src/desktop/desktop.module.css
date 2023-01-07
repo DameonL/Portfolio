@@ -79,6 +79,8 @@ body {
   height: 6em;
   overflow: hidden;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .desktopIcon:hover {
