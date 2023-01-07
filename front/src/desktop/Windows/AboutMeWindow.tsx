@@ -1,7 +1,7 @@
 import DesktopWindow from "./DesktopWindow";
 import DesktopWindowState from "./DesktopWindowState";
 
-export default function AboutWindow(props: { state: DesktopWindowState }) {
+export default function AboutMeWindow(props: { state: DesktopWindowState<null> }) {
   const size = props.state.size;
   size.width = 600;
   return (

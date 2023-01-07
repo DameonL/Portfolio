@@ -2,7 +2,7 @@ import DesktopWindowState from "./DesktopWindowState";
 import styles from "./windows.module.css";
 
 type DesktopWindowsProps = {
-  windows: DesktopWindowState[];
+  windows: DesktopWindowState<any>[];
 };
 
 export default function DesktopWindows(props: DesktopWindowsProps) {
@@ -10,7 +10,7 @@ export default function DesktopWindows(props: DesktopWindowsProps) {
 
   return (
     <div class={styles.desktopWindowContainer}>
-      {windows.map((window, index) => (
+      {windows.map((window) => (
         <window.type key={window.uuid} state={window} />
       ))}
     </div>

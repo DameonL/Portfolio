@@ -16,16 +16,22 @@ body {
 
 .desktop {
   display: flex;
-  overflow: hidden;
+  column-gap: 1em;
+  row-gap: 1em;
+  overflow: auto;
   flex-wrap: wrap;
+  max-width: 100%;
+  top: var(--menuBarHeight);
+  height: calc(100% - calc(var(--menuBarHeight) + var(--borderWidth)));
+  width: 100%;
 }
 
 .desktopMenuBar {
   display: flex;
   column-gap: 2em;
   background-color: var(--systemBackgroundColor);
-  border-bottom: 0.2em solid black;
-  height: 2em;
+  border-bottom: var(--borderWidth) solid black;
+  height: var(--menuBarHeight);
   width: 100%;
   user-select: none;
   z-index: 5000;
@@ -61,6 +67,7 @@ body {
 
 .desktopMenuItem {
   background-color: var(--systemBackgroundColor);
+  cursor: pointer;
 }
 
 .desktopMenuItem:hover {
@@ -74,17 +81,28 @@ body {
   cursor: pointer;
 }
 
+.desktopIcon:hover {
+  filter: invert(1);
+}
+
 .desktopIconImage {
   margin: auto;
   text-align: center;
   font-size: 3em;
+  height: 75%;
+}
+
+.desktopIconImage > img {
+  width: inherit;
+  height: inherit;
 }
 
 .desktopIconLabel {
   text-align: center;
   background-color: var(--systemBackgroundColor);
   padding: 0.4em;
-  font-size: .75em;
+  font-size: 0.75em;
+  height: 25%;
 }
 
 ::-webkit-scrollbar,

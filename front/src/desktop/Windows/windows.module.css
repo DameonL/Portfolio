@@ -1,5 +1,9 @@
 .desktopWindowContainer {
-  position: static;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5000;
+  pointer-events: none;
 }
 
 .desktopWindow {
@@ -7,6 +11,7 @@
   border: 0.2em solid black;
   box-shadow: 0.3em 0.3em 0em rgb(0, 0, 0, 0.5);
   background-color: var(--systemBackgroundColor);
+  pointer-events: all;
 }
 
 .titlebar {
@@ -26,6 +31,7 @@
   max-width: calc(100% - 1.5em);
   position: absolute;
   overflow: hidden;
+  background-color: var(--systemBackgroundColor);
 }
 
 .closeButton {

@@ -1,7 +1,7 @@
 import { VNode } from "preact";
 
-export default interface DesktopWindowState {
-  type: (props: { state: DesktopWindowState; }) => VNode<HTMLElement>;
+export default interface DesktopWindowState<T> {
+  type: (props: { state: DesktopWindowState<T>; }) => VNode<HTMLElement>;
   title: string;
   uuid?: string;
   dragging?: boolean;
@@ -11,9 +11,10 @@ export default interface DesktopWindowState {
     z: number;
   };
   size: {
-    width: number | "auto";
-    height: number | "auto";
+    width: number;
+    height: number;
   }
+  windowProps: T
   close: () => void;
   update: () => void;
 }

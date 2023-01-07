@@ -2,4 +2,6 @@
   --systemBackgroundColor: lightgray;
   --desktopColor: #005200;
   --dottedBackground: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAABtJREFUGFdjZGBg+M/AwMDIAAVwBjYBsEoMFQBW5gIF0HSEnwAAAABJRU5ErkJggg==);
+  --menuBarHeight: 2em;
+  --borderWidth: 0.2em;
 }

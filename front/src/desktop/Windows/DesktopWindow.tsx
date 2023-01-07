@@ -5,7 +5,7 @@ import { makeDraggable } from "./makeDraggable";
 import styles from "./windows.module.css";
 
 interface DesktopWindowProps {
-  state: DesktopWindowState;
+  state: DesktopWindowState<any>;
   content: VNode<HTMLElement>;
 }
 
@@ -35,13 +35,13 @@ export default function DesktopWindow(props: DesktopWindowProps) {
     <div
       ref={windowRef}
       class={styles.desktopWindow}
-      style={`left: ${state.position.x}px; top: ${
-        state.position.y
-      }px; z-index: ${state.position.z}; cursor: ${
-        state.dragging ? "grabbing" : "grab"
-      };`}
+      style={`left: ${state.position.x}px; top: ${state.position.y}px; z-index: ${state.position.z};`}
     >
-      <div ref={titlebarRef} class={styles.titlebar}>
+      <div
+        ref={titlebarRef}
+        class={styles.titlebar}
+        style={`cursor: ${state.dragging ? "grabbing" : "grab"};`}
+      >
         <div class={styles.title}>{state.title}</div>
         <div class={styles.closeButton} onClick={() => state.close()}></div>
       </div>
