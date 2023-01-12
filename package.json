@@ -9,12 +9,14 @@
   "scripts": {
     "build": "concurrently \"npm run build --workspace back\" \"npm run build --workspace front\"",
     "watch": "concurrently \"npm run watch --workspace back\" \"npm run watch --workspace front\"",
-    "dev": "concurrently \"npm run dev --workspace back\" \"npm run dev --workspace front\""
+    "dev": "concurrently \"npm run dev --workspace back\" \"npm run dev --workspace front\"",
+    "deploy": "npm run build --workspace back && firebase deploy"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^7.6.0",
+    "firebase-tools": "^11.20.0",
     "nodemon": "^2.0.20"
   },
   "devDependencies": {
