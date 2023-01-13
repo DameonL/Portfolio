@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        }
+    ]
+  },
+}

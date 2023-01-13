@@ -1,0 +1,25 @@
+{
+  "name": "dameons-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+    "front"
+  ],
+  "scripts": {
+    "build": "concurrently \"npm run build --workspace front\"",
+    "watch": "concurrently \"npm run watch --workspace front\"",
+    "dev": "concurrently \"npm run dev --workspace front\"",
+    "deploy": "npm run build --workspace front && firebase deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "firebase-tools": "^11.20.0",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "eslint-plugin-css-modules": "^2.11.0",
+    "typescript-plugin-css-modules": "^4.1.1"
+  }
+}
