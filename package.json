@@ -9,7 +9,7 @@
     "build": "concurrently \"npm run build --workspace front\"",
     "watch": "concurrently \"npm run watch --workspace front\"",
     "dev": "concurrently \"npm run dev --workspace front\"",
-    "deploy": "npm run build --workspace front && firebase deploy"
+    "deploy": "npm install && npm run build --workspace front && firebase deploy"
   },
   "author": "",
   "license": "ISC",
