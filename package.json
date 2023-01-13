@@ -10,7 +10,7 @@
     "build": "concurrently \"npm run build --workspace back\" \"npm run build --workspace front\"",
     "watch": "concurrently \"npm run watch --workspace back\" \"npm run watch --workspace front\"",
     "dev": "concurrently \"npm run dev --workspace back\" \"npm run dev --workspace front\"",
-    "deploy": "npm run build --workspace back && firebase deploy"
+    "deploy": "npm run build --workspace front && firebase deploy"
   },
   "author": "",
   "license": "ISC",

@@ -14,6 +14,7 @@ import "./globals.css";
 import DesktopWindows from "./Windows/DesktopWindows";
 import DesktopWindowState from "./Windows/DesktopWindowState";
 import SamplesWindow from "./Windows/Samples/SamplesWindow";
+import ProjectsWindow from "./Windows/Projects/ProjectsWindow";
 let windows: DesktopWindowState<any>[],
   setWindows: StateUpdater<DesktopWindowState<any>[]>;
 
@@ -91,6 +92,13 @@ export default function Desktop() {
           image={<div style={{ filter: "grayscale(1)" }}>📁</div>}
           onClick={() => {
             openWindow<any>(SamplesWindow, null, "Sample Websites");
+          }}
+        />
+        <DesktopIcon
+          label="Projects"
+          image={<div style={{ filter: "grayscale(1)" }}>📁</div>}
+          onClick={() => {
+            openWindow<any>(ProjectsWindow, null, "Projects");
           }}
         />
       </div>
