@@ -15,7 +15,7 @@ export default function DesktopMenu() {
               openWindow(AboutMeWindow, { state: null }, "About Me");
             }}
           >
-            About Me
+            Me
           </div>
           <div
             class={styles.desktopMenuItem}
@@ -23,7 +23,7 @@ export default function DesktopMenu() {
               openWindow(AboutSiteWindow, { state: null }, "About This Site");
             }}
           >
-            About This Site
+            This Site
           </div>
         </div>
       </div>
