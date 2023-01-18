@@ -18,6 +18,23 @@ import ProjectsWindow from "./Windows/Projects/ProjectsWindow";
 let windows: DesktopWindowState<any>[],
   setWindows: StateUpdater<DesktopWindowState<any>[]>;
 
+function createWindowMethods(window: DesktopWindowState<any>, windows) {
+  window.close = () => {
+    windows.splice(windows.indexOf(window), 1);
+    setWindows([...windows]);
+  };
+  window.update = () => {
+    const index = windows.findIndex((x) => x.uuid === window.uuid);
+    windows[index] = window;
+    setWindows([...windows]);
+  };
+  window.bringToFront = () => {
+    windows.splice(windows.indexOf(window), 1);
+    windows.push(window);
+    setWindows([...windows]);
+  }
+}
+
 export let desktop: MutableRef<HTMLDivElement>;
 
 export function openWindow<T>(
@@ -33,8 +50,9 @@ export function openWindow<T>(
       height: desktop.current.clientHeight * 0.5,
       width: desktop.current.clientWidth * 0.5,
     },
-    update: () => updateWindow(state),
-    close: () => closeWindow(state),
+    update: () => {},
+    close: () => {},
+    bringToFront: () => {},
     windowProps: props,
   };
 
@@ -63,6 +81,12 @@ export default function Desktop() {
     };
   }, []);
 
+  useEffect(() => {
+    for (const window of windows) {
+      createWindowMethods(window, windows);
+    }
+  }, [windows]);
+
   return (
     <div
       style={{
@@ -82,7 +106,13 @@ export default function Desktop() {
         />
         <DesktopIcon
           label="LinkedIn"
-          image={<img draggable={false} style={{ filter: "grayscale(1) invert(1) brightness(2)" }} src="./img/LI-In-Bug.png" />}
+          image={
+            <img
+              draggable={false}
+              style={{ filter: "grayscale(1) invert(1) brightness(2)" }}
+              src="./img/LI-In-Bug.png"
+            />
+          }
           onClick={() => {
             window.open("https://www.linkedin.com/in/dameon-laird/", "_blank");
           }}
@@ -104,15 +134,4 @@ export default function Desktop() {
       </div>
     </div>
   );
-}
-
-function closeWindow(state: DesktopWindowState<any>) {
-  windows.splice(windows.indexOf(state), 1);
-  setWindows([...windows]);
-}
-
-function updateWindow(window: DesktopWindowState<any>) {
-  const index = windows.findIndex((x) => x.uuid === window.uuid);
-  windows[index] = window;
-  setWindows([...windows]);
 }

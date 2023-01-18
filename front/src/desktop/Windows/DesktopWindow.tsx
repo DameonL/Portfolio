@@ -36,6 +36,7 @@ export default function DesktopWindow(props: DesktopWindowProps) {
       ref={windowRef}
       class={styles.desktopWindow}
       style={`left: ${state.position.x}px; top: ${state.position.y}px; z-index: ${state.position.z};`}
+      onMouseDown={state.bringToFront}
     >
       <div
         ref={titlebarRef}

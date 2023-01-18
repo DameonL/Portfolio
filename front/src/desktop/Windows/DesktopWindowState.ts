@@ -17,4 +17,5 @@ export default interface DesktopWindowState<T> {
   windowProps: T
   close: () => void;
   update: () => void;
+  bringToFront: () => void;
 }
