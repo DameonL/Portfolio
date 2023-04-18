@@ -2,6 +2,24 @@ import Project from "./Project";
 
 const projects: Project[] = [
   {
+    title: "eventMonkey",
+    links: [
+      {
+        linkText: "Source Code",
+        link: "https://github.com/DameonL/eventMonkey",
+      },
+    ],
+    description: (
+      <div>
+        eventMonkey is a Discord bot which gives users advanced control over scheduling and managing events for other
+        users to attend. Unlike other bots, eventMonkey doesn't require a database, taking advantage of Discord's
+        features to store and track events. The bot can work as either a standalone bot, or is designed to be easily
+        integrated into other bots.
+      </div>
+    ),
+    technologies: ["TypeScript", "Discord"],
+  },
+  {
     title: "Beyond Blue Skies",
     links: [
       {
@@ -11,11 +29,9 @@ const projects: Project[] = [
     ],
     description: (
       <div>
-        A full-featured mobile shoot 'em up game with RPG mechanics, featuring
-        an original soundtrack, dialogue, and unlockable content. The player
-        steers a spaceship through procedurally created levels, fighting a
-        variety of enemies and avoiding environmental obstacles while collecting
-        power-ups.
+        A full-featured mobile shoot 'em up game with RPG mechanics, featuring an original soundtrack, dialogue, and
+        unlockable content. The player steers a spaceship through procedurally created levels, fighting a variety of
+        enemies and avoiding environmental obstacles while collecting power-ups.
       </div>
     ),
     technologies: ["C#", "Unity", "Visual Studio"],
@@ -30,9 +46,8 @@ const projects: Project[] = [
     ],
     description: (
       <div>
-        An extension for Unity3D which provides a system to analyze the way
-        lighting affects an object and determine whether that object should be
-        considered "hidden" for an NPC observer.
+        An extension for Unity3D which provides a system to analyze the way lighting affects an object and determine
+        whether that object should be considered "hidden" for an NPC observer.
       </div>
     ),
     technologies: ["C#", "Unity", "Visual Studio"],
@@ -51,9 +66,8 @@ const projects: Project[] = [
     ],
     description: (
       <div>
-        A vanilla Javascript implementation of an advanced To Do List, featuring
-        a list which can be rearranged using drag and drop, and an advanced text
-        editor.
+        A vanilla Javascript implementation of an advanced To Do List, featuring a list which can be rearranged using
+        drag and drop, and an advanced text editor.
       </div>
     ),
     technologies: ["JavaScript", "HTML/CSS", "WebComponents"],
@@ -70,11 +84,7 @@ const projects: Project[] = [
         link: "https://dameonl.github.io/CalcYouLater/",
       },
     ],
-    description: (
-      <div>
-        A robust scientific calculator created using the React framework."
-      </div>
-    ),
+    description: <div>A robust scientific calculator created using the React framework."</div>,
     technologies: ["JavaScript", "React.js", "HTML/CSS"],
   },
   {
@@ -87,8 +97,8 @@ const projects: Project[] = [
     ],
     description: (
       <div>
-        An example Match Three game for the Unity3D game engine which provides
-        an expandable framework to create Match Three style games.
+        An example Match Three game for the Unity3D game engine which provides an expandable framework to create Match
+        Three style games.
       </div>
     ),
     technologies: ["C#", "Unity", "Visual Studio"],
@@ -103,9 +113,8 @@ const projects: Project[] = [
     ],
     description: (
       <div>
-        A library which adds support for serializing a variety of collections to
-        the Unity3D game engine and updates the Unity3D editor to support
-        viewing those collections.
+        A library which adds support for serializing a variety of collections to the Unity3D game engine and updates the
+        Unity3D editor to support viewing those collections.
       </div>
     ),
     technologies: ["C#", "Unity", "Visual Studio"],
