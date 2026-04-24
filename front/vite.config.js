@@ -13,7 +13,7 @@ export default defineConfig({
       entry: "index.html",
       name: "Portfolio",
     },
-    outDir: "../../deploy/wwwroot/",
+    outDir: "../deploy",
     emptyOutDir: true,
     minify: "false",
     rollupOptions: {
